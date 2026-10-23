@@ -49,11 +49,10 @@ DEFAULT_SETTINGS = {
     "filter_invisible_nodes": True,
     "filter_young_popups": True,
     "reverse_traversal": False,
-    "is_user_check": False,
     # 全局规则：对所有包生效，专治小程序 / 异包开屏广告
     "global_rules_enabled": True,
     "global_rules": {
-        "keywords": ["跳过广告", "关闭广告", "跳过"],
+        "keywords": ["跳过广告", "关闭广告"],
         "keywords_append": [],
         "popup_rules": [],
     },
@@ -444,6 +443,8 @@ def import_rules(
     - 传 ``package``：把内容当作「单个应用的规则对象」或「readme.md 代码块」，
       用 package 计算 Java hashCode 后导入该应用（支持从社区文档复制规则）。
     """
+    if content and len(content) > 5_000_000:
+        raise ApiError(413, "规则内容过大（上限 5MB）")
     single_name = None
     single_pkg = None
     if package and package.strip():
@@ -595,6 +596,7 @@ def simulate(body: dict) -> dict:
     use_global = body.get("use_global", True)
     global_rules = load_global_rules() if use_global else None
     mini_program = load_mini_program()
+    filter_young = bool(get_all_settings().get("filter_young_popups", True))
 
     if not (
         app_rules["keywords"] or app_rules["keywords_append"] or app_rules["popup_rules"]
@@ -609,6 +611,7 @@ def simulate(body: dict) -> dict:
             "global_rules": global_rules,
             "package": package,
             "mini_program": mini_program,
+            "filter_young": filter_young,
         },
     )
 
@@ -618,14 +621,15 @@ def simulate(body: dict) -> dict:
         for act in hit["actions"]:
             if act["kind"] in ("node", "back", "bounds"):
                 db.execute(
-                    "INSERT INTO skip_logs(app_hash, rule_type, trigger_text, action_kind, action_target, created_at) "
-                    "VALUES (?,?,?,?,?,?)",
+                    "INSERT INTO skip_logs(app_hash, rule_type, trigger_text, action_kind, action_target, source, created_at) "
+                    "VALUES (?,?,?,?,?,?,?)",
                     (
                         app_hash,
                         hit["rule_type"],
                         hit["match_id"],
                         act["kind"],
                         act.get("target_text") or act.get("target_id") or act.get("bounds") or "",
+                        "simulate",
                         ts,
                     ),
                 )

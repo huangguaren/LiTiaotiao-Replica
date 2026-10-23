@@ -67,6 +67,14 @@ public final class NodeSnapshot {
         return cs == null ? null : cs.toString();
     }
 
+    /** 回收整棵快照树对应的系统节点，避免长期运行时的节点泄漏。 */
+    public void recycleTree() {
+        if (source != null) {
+            try { source.recycle(); } catch (Exception ignore) { }
+        }
+        for (NodeSnapshot c : children) c.recycleTree();
+    }
+
     private static String str(CharSequence cs) {
         return cs == null ? "" : cs.toString();
     }

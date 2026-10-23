@@ -75,3 +75,18 @@ jobs:
             LiTiaotiao-Android/app/build/reports/lint-results-debug.html
             LiTiaotiao-Android/app/build/reports/lint-results-debug.txt
           if-no-files-found: ignore
+
+  python-tests:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run unit tests
+        run: python LiTiaotiao-Replica/tests/run_tests.py

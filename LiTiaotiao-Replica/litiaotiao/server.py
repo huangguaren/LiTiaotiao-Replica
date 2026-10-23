@@ -142,8 +142,12 @@ class Handler(BaseHTTPRequestHandler):
         if rel in ("", "index.html"):
             rel = "index.html"
         target = (STATIC_DIR / rel).resolve()
-        # Prevent path traversal.
-        if not str(target).startswith(str(STATIC_DIR.resolve())):
+        # Prevent path traversal (proper containment check, not string prefix).
+        try:
+            if not target.is_relative_to(STATIC_DIR.resolve()):
+                self._send_json(403, {"error": "forbidden"})
+                return
+        except ValueError:
             self._send_json(403, {"error": "forbidden"})
             return
         if not target.exists() or not target.is_file():
