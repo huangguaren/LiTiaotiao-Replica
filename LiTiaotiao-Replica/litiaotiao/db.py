@@ -8,6 +8,7 @@ single-user local tool and keeps the code trivially thread-safe.
 from __future__ import annotations
 
 import sqlite3
+from contextlib import contextmanager
 from typing import Iterable, Sequence
 
 from .config import config
@@ -107,5 +108,20 @@ def execute_many(sql: str, seq: Iterable[Sequence]) -> None:
     try:
         conn.executemany(sql, seq)
         conn.commit()
+    finally:
+        conn.close()
+
+
+@contextmanager
+def transaction():
+    """单连接 + 单事务，用于批量写入（大幅提升导入/种子性能）。"""
+    conn = get_conn()
+    try:
+        conn.execute("BEGIN")
+        yield conn
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
     finally:
         conn.close()
