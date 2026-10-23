@@ -9,7 +9,34 @@ permissions:
   contents: write
 
 jobs:
+  # 仅当 tag 所在提交属于 main 分支时才发布
+  guard:
+    name: Check tag is on main
+    runs-on: ubuntu-latest
+    outputs:
+      on_main: ${{ steps.check.outputs.on_main }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check ancestry
+        id: check
+        run: |
+          git fetch --no-tags origin main
+          if git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "on_main=true" >> "$GITHUB_OUTPUT"
+            echo "Tag commit is on main."
+          else
+            echo "on_main=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Tag commit is NOT on main; release will be skipped."
+          fi
+
   release:
+    name: Build & Release
+    needs: guard
+    if: needs.guard.outputs.on_main == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
