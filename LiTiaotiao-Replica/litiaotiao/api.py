@@ -257,6 +257,37 @@ def get_app(app_hash: int) -> dict:
     return app
 
 
+def _write_app_conn(
+    conn,
+    app_hash: int,
+    *,
+    enabled: bool = True,
+    whitelisted: bool = False,
+    display_name: Optional[str] = None,
+    source: str = "manual",
+) -> None:
+    """在给定连接/事务内写入（或更新）一条 apps 记录（避免每次新建连接）。"""
+    info = package_index.lookup_by_hash(app_hash)
+    pkg = info.get("package") or ""
+    name = display_name or info.get("app_name") or f"未知应用 {app_hash}"
+    ts = now_iso()
+    row = conn.execute(
+        "SELECT hash FROM apps WHERE hash=?", (app_hash,)
+    ).fetchone()
+    if row:
+        conn.execute(
+            "UPDATE apps SET enabled=?, whitelisted=?, display_name=?, updated_at=? "
+            "WHERE hash=?",
+            (int(enabled), int(whitelisted), name, ts, app_hash),
+        )
+    else:
+        conn.execute(
+            "INSERT INTO apps(hash, package, display_name, enabled, whitelisted, source, created_at, updated_at) "
+            "VALUES (?,?,?,?,?,?,?,?)",
+            (app_hash, pkg, name, int(enabled), int(whitelisted), source, ts, ts),
+        )
+
+
 def upsert_app(
     app_hash: int,
     *,
@@ -265,31 +296,14 @@ def upsert_app(
     display_name: Optional[str] = None,
     source: str = "manual",
 ) -> dict:
-    info = package_index.lookup_by_hash(app_hash)
-    pkg = (display_name is None and info.get("package")) or ""
-    name = display_name or info.get("app_name") or f"未知应用 {app_hash}"
-    ts = now_iso()
-    existing = db.query("SELECT hash FROM apps WHERE hash=?", (app_hash,))
-    if existing:
-        db.execute(
-            "UPDATE apps SET enabled=?, whitelisted=?, display_name=?, updated_at=? "
-            "WHERE hash=?",
-            (int(enabled), int(whitelisted), name, ts, app_hash),
-        )
-    else:
-        db.execute(
-            "INSERT INTO apps(hash, package, display_name, enabled, whitelisted, source, created_at, updated_at) "
-            "VALUES (?,?,?,?,?,?,?,?)",
-            (
-                app_hash,
-                pkg,
-                name,
-                int(enabled),
-                int(whitelisted),
-                source,
-                ts,
-                ts,
-            ),
+    with db.transaction() as conn:
+        _write_app_conn(
+            conn,
+            app_hash,
+            enabled=enabled,
+            whitelisted=whitelisted,
+            display_name=display_name,
+            source=source,
         )
     return get_app(app_hash)
 
@@ -451,51 +465,53 @@ def import_rules(
     imported_apps = 0
     imported_rules = 0
     errors: list[str] = []
-    for rec in records:
-        h = rec["hash"]
-        obj = rec["rule_obj"]
-        if obj is None:
-            errors.append(f"hash {h}: 规则内容不是合法 JSON，已跳过")
-            continue
-        keywords, keywords_append, popup, params = rules_io.rule_obj_to_parts(obj)
-        upsert_app(h, display_name=single_name, source="import")
-        if single_pkg:
-            db.execute(
-                "UPDATE apps SET package=? WHERE hash=? AND (package IS NULL OR package='')",
-                (single_pkg, h),
-            )
-        db.execute("DELETE FROM rules WHERE app_hash=?", (h,))
-        db.execute("DELETE FROM app_params WHERE app_hash=?", (h,))
-        order = 0
-        for kw in keywords:
-            db.execute(
-                "INSERT INTO rules(app_hash, rule_type, match_id, action, times, sort_order) "
-                "VALUES (?,?,?,?,?,?)",
-                (h, "keyword", kw, kw, 1, order),
-            )
-            order += 1
-        for kw in keywords_append:
-            db.execute(
-                "INSERT INTO rules(app_hash, rule_type, match_id, action, times, sort_order) "
-                "VALUES (?,?,?,?,?,?)",
-                (h, "keyword_append", kw, kw, 1, order),
-            )
-            order += 1
-        for pr in popup:
-            db.execute(
-                "INSERT INTO rules(app_hash, rule_type, match_id, action, times, sort_order) "
-                "VALUES (?,?,?,?,?,?)",
-                (h, "popup", pr["id"], pr["action"], pr["times"], order),
-            )
-            order += 1
-        for k, v in params.items():
-            db.execute(
-                "INSERT INTO app_params(app_hash, key, value) VALUES (?,?,?) "
-                "ON CONFLICT(app_hash, key) DO UPDATE SET value=excluded.value",
-                (h, k, json.dumps(v)),
-            )
-        imported_apps += 1
-        imported_rules += len(keywords) + len(keywords_append) + len(popup)
+    # 单连接 + 单事务批量写入：795 条规则从「795 次建连+提交」降为 1 次事务。
+    with db.transaction() as conn:
+        for rec in records:
+            h = rec["hash"]
+            obj = rec["rule_obj"]
+            if obj is None:
+                errors.append(f"hash {h}: 规则内容不是合法 JSON，已跳过")
+                continue
+            keywords, keywords_append, popup, params = rules_io.rule_obj_to_parts(obj)
+            _write_app_conn(conn, h, display_name=single_name, source="import")
+            if single_pkg:
+                conn.execute(
+                    "UPDATE apps SET package=? WHERE hash=? AND (package IS NULL OR package='')",
+                    (single_pkg, h),
+                )
+            conn.execute("DELETE FROM rules WHERE app_hash=?", (h,))
+            conn.execute("DELETE FROM app_params WHERE app_hash=?", (h,))
+            order = 0
+            for kw in keywords:
+                conn.execute(
+                    "INSERT INTO rules(app_hash, rule_type, match_id, action, times, sort_order) "
+                    "VALUES (?,?,?,?,?,?)",
+                    (h, "keyword", kw, kw, 1, order),
+                )
+                order += 1
+            for kw in keywords_append:
+                conn.execute(
+                    "INSERT INTO rules(app_hash, rule_type, match_id, action, times, sort_order) "
+                    "VALUES (?,?,?,?,?,?)",
+                    (h, "keyword_append", kw, kw, 1, order),
+                )
+                order += 1
+            for pr in popup:
+                conn.execute(
+                    "INSERT INTO rules(app_hash, rule_type, match_id, action, times, sort_order) "
+                    "VALUES (?,?,?,?,?,?)",
+                    (h, "popup", pr["id"], pr["action"], pr["times"], order),
+                )
+                order += 1
+            for k, v in params.items():
+                conn.execute(
+                    "INSERT INTO app_params(app_hash, key, value) VALUES (?,?,?) "
+                    "ON CONFLICT(app_hash, key) DO UPDATE SET value=excluded.value",
+                    (h, k, json.dumps(v)),
+                )
+            imported_apps += 1
+            imported_rules += len(keywords) + len(keywords_append) + len(popup)
     return {
         "imported_apps": imported_apps,
         "imported_rules": imported_rules,

@@ -1,0 +1,95 @@
+name: Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  # 仅当 tag 所在提交属于 main 分支时才发布
+  guard:
+    name: Check tag is on main
+    runs-on: ubuntu-latest
+    outputs:
+      on_main: ${{ steps.check.outputs.on_main }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check ancestry
+        id: check
+        run: |
+          git fetch --no-tags origin main
+          if git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "on_main=true" >> "$GITHUB_OUTPUT"
+            echo "Tag commit is on main."
+          else
+            echo "on_main=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Tag commit is NOT on main; release will be skipped."
+          fi
+
+  release:
+    name: Build & Release
+    needs: guard
+    if: needs.guard.outputs.on_main == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: LiTiaotiao-Android
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.2'
+
+      - name: Build debug APK
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: Prepare release assets
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          cd app/build/outputs/apk/debug
+          cp app-debug.apk "LiTiaotiao-${TAG}-debug.apk"
+          sha256sum "LiTiaotiao-${TAG}-debug.apk" > SHA256SUMS.txt
+          ls -la
+          cat SHA256SUMS.txt
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "李跳跳 ${{ github.ref_name }}（debug）"
+          draft: false
+          prerelease: false
+          files: |
+            LiTiaotiao-Android/app/build/outputs/apk/debug/LiTiaotiao-${{ github.ref_name }}-debug.apk
+            LiTiaotiao-Android/app/build/outputs/apk/debug/SHA256SUMS.txt
+          body: |
+            ## 李跳跳 ${{ github.ref_name }}（debug）
+
+            - 无障碍服务自动跳过开屏广告与弹窗，支持**全局规则 + 小程序开屏兜底**
+            - 内置社区规则约 **328 应用 / 795 条规则**
+            - 规则导入/导出、应用管理、自定义应用、全局规则
+
+            ### 安装
+            - 手机开启「允许安装未知来源应用」后安装下方 APK
+            - 或 `adb install -r LiTiaotiao-${{ github.ref_name }}-debug.apk`
+
+            ### 校验
+            - 见附件 `SHA256SUMS.txt`
+
+            > debug 签名，适合自用/测试；正式分发请配置自己的 release keystore 后 `assembleRelease`。
