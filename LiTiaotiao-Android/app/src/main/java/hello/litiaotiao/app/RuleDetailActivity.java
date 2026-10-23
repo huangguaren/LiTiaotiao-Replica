@@ -28,6 +28,7 @@ public class RuleDetailActivity extends AppCompatActivity implements RuleListAda
     private int hash;
     private Repository repo;
     private Repository.AppDetail app;
+    private boolean loading = false;
 
     private Switch switchEnabled, switchWhitelisted;
     private Switch paramClickWay, paramUnite, paramReverse, paramLtt;
@@ -66,8 +67,8 @@ public class RuleDetailActivity extends AppCompatActivity implements RuleListAda
         listKeyword.setAdapter(adKeyword);
         listAppend.setAdapter(adAppend);
 
-        switchEnabled.setOnCheckedChangeListener((v, c) -> { if (app != null) repo.setEnabled(hash, c); });
-        switchWhitelisted.setOnCheckedChangeListener((v, c) -> { if (app != null) repo.setWhitelisted(hash, c); });
+        switchEnabled.setOnCheckedChangeListener((v, c) -> { if (app != null && !loading) repo.setEnabled(hash, c); });
+        switchWhitelisted.setOnCheckedChangeListener((v, c) -> { if (app != null && !loading) repo.setWhitelisted(hash, c); });
 
         bindSwitch(paramClickWay, "click_way_popup");
         bindSwitch(paramUnite, "unite_popup_rules");
@@ -83,12 +84,12 @@ public class RuleDetailActivity extends AppCompatActivity implements RuleListAda
     }
 
     private void bindSwitch(Switch sw, String key) {
-        sw.setOnCheckedChangeListener((v, c) -> { if (app != null) repo.setParam(hash, key, c ? "true" : "false"); });
+        sw.setOnCheckedChangeListener((v, c) -> { if (app != null && !loading) repo.setParam(hash, key, c ? "true" : "false"); });
     }
 
     private void bindNumber(EditText et, String key, int def) {
         et.setOnFocusChangeListener((v, f) -> {
-            if (!f && app != null) {
+            if (!f && app != null && !loading) {
                 int val = parseInt(et.getText().toString(), def);
                 repo.setParam(hash, key, val);
             }
@@ -101,6 +102,7 @@ public class RuleDetailActivity extends AppCompatActivity implements RuleListAda
             runOnUiThread(() -> {
                 app = a;
                 if (a == null) { Toast.makeText(this, "应用不存在", Toast.LENGTH_SHORT).show(); finish(); return; }
+                loading = true;
                 String title = !TextUtils.isEmpty(a.appName) ? a.appName
                         : (!TextUtils.isEmpty(a.displayName) ? a.displayName : a.packageName);
                 ((TextView) findViewById(R.id.detailAppName)).setText(title);
@@ -130,6 +132,7 @@ public class RuleDetailActivity extends AppCompatActivity implements RuleListAda
                 setListHeight(listPopup);
                 setListHeight(listKeyword);
                 setListHeight(listAppend);
+                loading = false;
             });
         }).start();
     }

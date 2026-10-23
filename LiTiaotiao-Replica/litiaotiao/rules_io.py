@@ -25,12 +25,17 @@ from typing import Any, Optional
 # dropped on import.
 _TRAILING_COMMA_RE = re.compile(r",\s*([}\]])")
 _MD_FENCE_RE = re.compile(r"```[a-zA-Z0-9]*\s*(.*?)```", re.S)
-_COMMENT_RE = re.compile(r"/\*.*?\*/|//[^\n]*", re.S)
+_BLOCK_COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)
+_LINE_COMMENT_RE = re.compile(r"(?m)^\s*//.*$")
 
 
 def _clean_rule_text(s: str) -> str:
-    """去掉 markdown 规则块里的注释与尾随逗号。"""
-    s = _COMMENT_RE.sub("", s)
+    """去掉 markdown 规则块里的注释与尾随逗号。
+
+    仅剥离块注释与「行首」行注释，避免误删字符串内的 ``//``（如 URL）。
+    """
+    s = _BLOCK_COMMENT_RE.sub("", s)
+    s = _LINE_COMMENT_RE.sub("", s)
     s = _TRAILING_COMMA_RE.sub(r"\1", s)
     return s
 

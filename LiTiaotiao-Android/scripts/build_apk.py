@@ -84,17 +84,17 @@ def place(zip_name, marker, target):
 
 
 def find_java_home():
-    for d in glob.glob(os.path.join(BT, "jdk*")):
-        if os.path.exists(os.path.join(d, "bin", "java.exe")):
-            return d
+    # 已解压则直接递归查找（兼容 jdk_extract/jdk-.../bin/java.exe）
+    for exe in glob.glob(os.path.join(BT, "**", "bin", "java.exe"), recursive=True):
+        return os.path.dirname(os.path.dirname(exe))
     src = os.path.join(BT, "jdk17.zip")
     if not os.path.exists(src):
         return None
     tmp = os.path.join(BT, "jdk_extract")
     shutil.rmtree(tmp, ignore_errors=True)
     unzip(src, tmp)
-    d = find_dir(tmp, os.path.join("bin", "java.exe"))
-    return os.path.dirname(d) if d and d.endswith("bin") else d
+    d = find_dir(tmp, "java.exe")
+    return os.path.dirname(d) if d else None
 
 
 def setup_gradle():

@@ -70,9 +70,14 @@ public class MainActivity extends AppCompatActivity {
         String enabled = Settings.Secure.getString(getContentResolver(),
                 Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
         if (TextUtils.isEmpty(enabled)) return false;
-        String full = getPackageName() + "/hello.litiaotiao.app.service.LttAccessibilityService";
-        String rel = getPackageName() + "/.service.LttAccessibilityService";
-        return enabled.contains(full) || enabled.contains(rel);
+        String cls = LttAccessibilityService.class.getName();
+        String full = getPackageName() + "/" + cls;
+        String rel = getPackageName() + "/" + cls.substring(getPackageName().length());
+        for (String entry : enabled.split(":")) {
+            String e = entry.trim();
+            if (e.equalsIgnoreCase(full) || e.equalsIgnoreCase(rel)) return true;
+        }
+        return false;
     }
 
     private void openAccessibilitySettings() {

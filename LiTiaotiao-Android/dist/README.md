@@ -1,12 +1,12 @@
 # 构建产物（可直接安装）
 
-- **`LiTiaotiao-2.2-replica-debug.apk`** — debug 签名，自用/测试可直接安装。
+- **`LiTiaotiao-2.2.2-debug.apk`** — debug 签名，自用/测试可直接安装。
 - 包名：`hello.litiaotiao.app`
-- 版本：`2.2-replica`（versionCode 22）
+- 版本：`2.2.2`（versionCode 24）
 - minSdk 24 / targetSdk 34 / compileSdk 34
 - 安装：
   ```bash
-  adb install -r LiTiaotiao-2.2-replica-debug.apk
+  adb install -r LiTiaotiao-2.2.2-debug.apk
   ```
   或手机开启「允许安装未知来源应用」后直接点击安装。
 - 完整性校验：见同目录 `SHA256SUMS.txt`。

@@ -309,6 +309,7 @@ def evaluate_screen(
     global_rules = opts.get("global_rules") or None
     package = opts.get("package")
     mini_program = opts.get("mini_program") or {}
+    filter_young = bool(opts.get("filter_young"))
 
     hits: list[RuleHit] = []
     matched_keywords: list[str] = []
@@ -321,6 +322,7 @@ def evaluate_screen(
         force = str(params.get("click_way_popup", 0)) in ("1", "true", "True")
         reverse = bool(params.get("reverse_traversal", False))
         search_times = max(int(params.get("search_times_popup", 1) or 1), 1)
+        unite = bool(params.get("unite_popup_rules", False))
         suffix = " [全局]" if scope == "global" else ""
 
         for kw in rule_set.get("keywords", []) or []:
@@ -344,10 +346,22 @@ def evaluate_screen(
             matched_keywords.append(kw)
 
         popup = rule_set.get("popup_rules", []) or []
+
+        # 联合规则（连续任务）：若存在 times=0 的「中间态」规则但当前未命中，
+        # 说明任务尚未进入可点击阶段，先等待、不执行点击规则。
+        if unite:
+            gates = [r for r in popup if int(r.get("times", 1)) == 0 and r.get("id")]
+            if gates and not any(
+                find_matching_nodes(screen, g["id"], reverse=reverse) for g in gates
+            ):
+                return
+
         for _ in range(search_times):
             for r in popup:
                 rid = r.get("id", "")
                 if not rid:
+                    continue
+                if filter_young and "青少年" in rid:
                     continue
                 raction = r.get("action", rid)
                 key = ("popup", rid, raction)
