@@ -1,0 +1,9 @@
+# 运行时依赖：无（仅使用 Python 3.10+ 标准库）
+#
+# 本项目刻意做到「零第三方运行时依赖」：后端基于 http.server + sqlite3，
+# 前端为原生 HTML/CSS/JS。直接用 `python run.py` 即可启动，无需 pip install。
+#
+# 仅测试使用标准库 unittest，同样无需安装任何包。
+#
+# 若要在本机用其它 Python 运行，请确保版本 >= 3.10。
+python>=3.10

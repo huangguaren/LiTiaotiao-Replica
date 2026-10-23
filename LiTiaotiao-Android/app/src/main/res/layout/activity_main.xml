@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 服务开关 -->
+        <LinearLayout style="@style/Card">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_title"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text" />
+                    <TextView
+                        android:id="@+id/textServiceStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/service_off"
+                        android:textColor="@color/muted"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <Switch
+                    android:id="@+id/switchService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/service_hint"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+            <Button
+                android:id="@+id/btnOpenAccessibility"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:text="打开系统无障碍设置" />
+        </LinearLayout>
+
+        <!-- 跳过计数 -->
+        <LinearLayout style="@style/Card">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skipped_prefix"
+                android:textColor="@color/muted" />
+            <TextView
+                android:id="@+id/textSkipCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/brand"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skipped_suffix"
+                android:textColor="@color/muted" />
+        </LinearLayout>
+
+        <!-- 菜单 -->
+        <LinearLayout style="@style/Card">
+            <Button
+                android:id="@+id/btnApps"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/menu_apps" />
+            <Button
+                android:id="@+id/btnImport"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/menu_import" />
+            <Button
+                android:id="@+id/btnGlobal"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/menu_global" />
+            <Button
+                android:id="@+id/btnSettings"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/menu_settings" />
+            <Button
+                android:id="@+id/btnAbout"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:text="@string/menu_about" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

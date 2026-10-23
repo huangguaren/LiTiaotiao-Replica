@@ -1,0 +1,2848 @@
+{
+  "generated_from": "D:\\software\\LiTiaotiao-main\\LiTiaotiao-Custom-Rules-main\\LiTiaotiao-Custom-Rules-main",
+  "count": 355,
+  "by_hash": {
+    "-1500338227": {
+      "package": "www.imxiaoyu.com.musiceditor",
+      "app_name": "音乐剪辑大师"
+    },
+    "1994036591": {
+      "package": "tv.danmaku.bili",
+      "app_name": "哔哩哔哩"
+    },
+    "1539906291": {
+      "package": "sshky.wjglq.rena",
+      "app_name": "jmcomic"
+    },
+    "1268902986": {
+      "package": "org.ajmd",
+      "app_name": "阿基米德"
+    },
+    "-1048697214": {
+      "package": "org.fungo.fungolive",
+      "app_name": "天天电视直播"
+    },
+    "-733096426": {
+      "package": "org.telegram.messenger.web",
+      "app_name": "Telegram"
+    },
+    "-1053900032": {
+      "package": "org.zwanoo.android.speedtest",
+      "app_name": "Speedtest"
+    },
+    "199342455": {
+      "package": "net.csdn.csdnplus",
+      "app_name": "CSDN"
+    },
+    "1827421494": {
+      "package": "net.unitepower.zhitong",
+      "app_name": "智通人才网"
+    },
+    "-1079643320": {
+      "package": "me.ele",
+      "app_name": "饿了么"
+    },
+    "-2096096381": {
+      "package": "im.xingzhe",
+      "app_name": "行者"
+    },
+    "-747700391": {
+      "package": "io.iftech.android.box",
+      "app_name": "小组件盒子"
+    },
+    "818881643": {
+      "package": "huo.niao.ansijhe",
+      "app_name": "火焰视频"
+    },
+    "-173873869": {
+      "package": "gov.pianzong.androidnga",
+      "app_name": "NGA玩家社区"
+    },
+    "-1865688240": {
+      "package": "fm.qingting.qtradio",
+      "app_name": "蜻蜓FM"
+    },
+    "-1357050264": {
+      "package": "cmb.pb",
+      "app_name": "招商银行"
+    },
+    "94841620": {
+      "package": "com.A",
+      "app_name": ""
+    },
+    "94841621": {
+      "package": "com.B",
+      "app_name": ""
+    },
+    "94841622": {
+      "package": "com.C",
+      "app_name": ""
+    },
+    "94841623": {
+      "package": "com.D",
+      "app_name": ""
+    },
+    "94841624": {
+      "package": "com.E",
+      "app_name": ""
+    },
+    "94841625": {
+      "package": "com.F",
+      "app_name": ""
+    },
+    "94841626": {
+      "package": "com.G",
+      "app_name": ""
+    },
+    "94841627": {
+      "package": "com.H",
+      "app_name": ""
+    },
+    "94841628": {
+      "package": "com.I",
+      "app_name": ""
+    },
+    "94841629": {
+      "package": "com.J",
+      "app_name": ""
+    },
+    "94841630": {
+      "package": "com.K",
+      "app_name": ""
+    },
+    "94841631": {
+      "package": "com.L",
+      "app_name": ""
+    },
+    "94841632": {
+      "package": "com.M",
+      "app_name": ""
+    },
+    "94841633": {
+      "package": "com.N",
+      "app_name": ""
+    },
+    "94841634": {
+      "package": "com.O",
+      "app_name": ""
+    },
+    "94841635": {
+      "package": "com.P",
+      "app_name": ""
+    },
+    "94841636": {
+      "package": "com.Q",
+      "app_name": ""
+    },
+    "94841637": {
+      "package": "com.R",
+      "app_name": ""
+    },
+    "94841638": {
+      "package": "com.S",
+      "app_name": ""
+    },
+    "94841639": {
+      "package": "com.T",
+      "app_name": ""
+    },
+    "94841640": {
+      "package": "com.U",
+      "app_name": ""
+    },
+    "94841641": {
+      "package": "com.V",
+      "app_name": ""
+    },
+    "94841642": {
+      "package": "com.W",
+      "app_name": ""
+    },
+    "94841643": {
+      "package": "com.X",
+      "app_name": ""
+    },
+    "94841644": {
+      "package": "com.Y",
+      "app_name": ""
+    },
+    "94841645": {
+      "package": "com.Z",
+      "app_name": ""
+    },
+    "28505069": {
+      "package": "com.zhanlang.dailyscreen",
+      "app_name": "录屏屏幕录制"
+    },
+    "-807718193": {
+      "package": "com.zhaopin.social",
+      "app_name": "智联招聘"
+    },
+    "752555548": {
+      "package": "com.zhihu.android",
+      "app_name": "知乎"
+    },
+    "-1163495604": {
+      "package": "com.zhubajie.client",
+      "app_name": "猪八戒"
+    },
+    "-1534473421": {
+      "package": "com.zjwh.android_wh_physicalfitness",
+      "app_name": "运动世界校园"
+    },
+    "652719697": {
+      "package": "com.zsyj.trans",
+      "app_name": "全局透明壁纸"
+    },
+    "-156204975": {
+      "package": "com.zuoyebang.airclass",
+      "app_name": "作业帮直播课"
+    },
+    "1970409442": {
+      "package": "com.yangcong345.android.phone",
+      "app_name": "洋葱学园-原洋葱数学"
+    },
+    "-1781124388": {
+      "package": "com.yiche.autoeasy",
+      "app_name": "易车"
+    },
+    "-1895428968": {
+      "package": "com.yingyeting.shouji",
+      "app_name": "网上营业厅"
+    },
+    "1388849156": {
+      "package": "com.yipiao",
+      "app_name": "智行火车票12306抢票"
+    },
+    "-1478231696": {
+      "package": "com.yishouapp.fumi",
+      "app_name": "一手服装批发"
+    },
+    "1773314214": {
+      "package": "com.yitong.mbank.psbc",
+      "app_name": "邮储银行"
+    },
+    "-1215205363": {
+      "package": "com.yixia.videoeditor",
+      "app_name": "秒拍"
+    },
+    "-243402277": {
+      "package": "com.ylzinfo.chinahrss",
+      "app_name": "掌上12333"
+    },
+    "-862766679": {
+      "package": "com.youdao.course",
+      "app_name": "有道精品课"
+    },
+    "-360330826": {
+      "package": "com.youdao.lingshi.aicard",
+      "app_name": "有道领世"
+    },
+    "-1692253156": {
+      "package": "com.youku.phone",
+      "app_name": "优酷视频"
+    },
+    "354525348": {
+      "package": "com.youqi.fjjf",
+      "app_name": "饭橘"
+    },
+    "502255059": {
+      "package": "com.yy.yomi",
+      "app_name": "Yo语音"
+    },
+    "-1488821919": {
+      "package": "com.xiachufang",
+      "app_name": "下厨房"
+    },
+    "1386065562": {
+      "package": "com.xiaohu.olevodmobile",
+      "app_name": "欧乐影院"
+    },
+    "947418797": {
+      "package": "com.xiaomi.gamecenter",
+      "app_name": "MIUI 游戏中心"
+    },
+    "1966418623": {
+      "package": "com.xiaomi.hm.health",
+      "app_name": "Zeep Life"
+    },
+    "560468770": {
+      "package": "com.xiaomi.market",
+      "app_name": "小米应用商店"
+    },
+    "1877659010": {
+      "package": "com.xiaomi.smarthome",
+      "app_name": "米家"
+    },
+    "-1898417322": {
+      "package": "com.xiaomi.vipaccount",
+      "app_name": "小米社区"
+    },
+    "706813998": {
+      "package": "com.ximalaya.ting.android",
+      "app_name": "喜马拉雅"
+    },
+    "1744979357": {
+      "package": "com.ximi.weightrecord",
+      "app_name": "体重小本"
+    },
+    "-1031558479": {
+      "package": "com.xingin.xhs",
+      "app_name": "小红书"
+    },
+    "1013943789": {
+      "package": "com.xs.fm",
+      "app_name": "番茄畅听"
+    },
+    "1667762191": {
+      "package": "com.xs.fm.lite",
+      "app_name": "番茄畅听音乐版"
+    },
+    "1056984291": {
+      "package": "com.xueqiu.android",
+      "app_name": "雪球"
+    },
+    "-894368837": {
+      "package": "com.xunlei.downloadprovider",
+      "app_name": "迅雷"
+    },
+    "-1703768290": {
+      "package": "com.xunlei.tdlive",
+      "app_name": "迅雷直播"
+    },
+    "-69877540": {
+      "package": "com.xunmeng.pinduoduo",
+      "app_name": "拼多多"
+    },
+    "1984799751": {
+      "package": "com.xunruifairy.wallpaper",
+      "app_name": "壁纸精灵"
+    },
+    "1014178734": {
+      "package": "com.xyhui",
+      "app_name": "PU口袋校园"
+    },
+    "-357699061": {
+      "package": "com.wandoujia.eyepetizer",
+      "app_name": "开眼"
+    },
+    "-506597855": {
+      "package": "com.weaver.emobile7",
+      "app_name": "EMobile7"
+    },
+    "-2003752385": {
+      "package": "com.wepie.weplay",
+      "app_name": "会玩"
+    },
+    "-34617839": {
+      "package": "com.whty.wicity.china",
+      "app_name": "和生活"
+    },
+    "-629891177": {
+      "package": "com.woapp.hebei",
+      "app_name": "联通智家"
+    },
+    "-660055062": {
+      "package": "com.wuba",
+      "app_name": "58同城"
+    },
+    "-1943382780": {
+      "package": "com.wuba.zhuanzhuan",
+      "app_name": "转转"
+    },
+    "2092879561": {
+      "package": "com.vipkid.app",
+      "app_name": "VIPKID英语"
+    },
+    "270694045": {
+      "package": "com.UCMobile",
+      "app_name": "UC浏览器"
+    },
+    "515982662": {
+      "package": "com.unionpay",
+      "app_name": "云闪付"
+    },
+    "1276497535": {
+      "package": "com.taobao.idlefish",
+      "app_name": "闲鱼"
+    },
+    "2138010815": {
+      "package": "com.taobao.live",
+      "app_name": "点淘"
+    },
+    "1855462465": {
+      "package": "com.taobao.taobao",
+      "app_name": "淘宝"
+    },
+    "2138257400": {
+      "package": "com.taobao.trip",
+      "app_name": "飞猪旅行"
+    },
+    "1238325805": {
+      "package": "com.taptap",
+      "app_name": "TapTap"
+    },
+    "-895263099": {
+      "package": "com.technicalperson",
+      "app_name": "技术人"
+    },
+    "1651531703": {
+      "package": "com.telecom.video",
+      "app_name": "天翼超高清"
+    },
+    "-1518567568": {
+      "package": "com.tencent.androidqqmail",
+      "app_name": "QQ邮箱"
+    },
+    "265439280": {
+      "package": "com.tencent.easyearn",
+      "app_name": "企鹅汇图"
+    },
+    "-103532384": {
+      "package": "com.tencent.edu",
+      "app_name": "腾讯课堂"
+    },
+    "1175536078": {
+      "package": "com.tencent.karaoke",
+      "app_name": "全民K歌"
+    },
+    "-103524794": {
+      "package": "com.tencent.map",
+      "app_name": "腾讯地图"
+    },
+    "-973170826": {
+      "package": "com.tencent.mm",
+      "app_name": "微信"
+    },
+    "361910168": {
+      "package": "com.tencent.mobileqq",
+      "app_name": "QQ"
+    },
+    "-103524201": {
+      "package": "com.tencent.mtt",
+      "app_name": "QQ浏览器"
+    },
+    "1085732649": {
+      "package": "com.tencent.news",
+      "app_name": "腾讯新闻"
+    },
+    "-103523392": {
+      "package": "com.tencent.now",
+      "app_name": "腾讯NOW直播"
+    },
+    "1358411530": {
+      "package": "com.tencent.podoteng",
+      "app_name": "PODO漫画"
+    },
+    "-191341086": {
+      "package": "com.tencent.qqlive",
+      "app_name": "腾讯视频"
+    },
+    "-1635328017": {
+      "package": "com.tencent.qqmusic",
+      "app_name": "QQ音乐"
+    },
+    "-245593387": {
+      "package": "com.tencent.qqpimsecure",
+      "app_name": "腾讯手机管家"
+    },
+    "-1979578047": {
+      "package": "com.tencent.transfer",
+      "app_name": "换机助手"
+    },
+    "-30728625": {
+      "package": "com.tencent.weishi",
+      "app_name": "微视"
+    },
+    "1380298910": {
+      "package": "com.tencent.wemeet.app",
+      "app_name": "腾讯会议"
+    },
+    "-30315083": {
+      "package": "com.tencent.wework",
+      "app_name": "企业微信"
+    },
+    "1511151769": {
+      "package": "com.tianyancha.skyeye",
+      "app_name": "天眼查"
+    },
+    "1197124177": {
+      "package": "com.tmall.wireless",
+      "app_name": "手机天猫"
+    },
+    "-874484145": {
+      "package": "com.to8to.housekeeper",
+      "app_name": "土巴兔装修"
+    },
+    "991394745": {
+      "package": "com.tongcheng.android",
+      "app_name": "同程旅行"
+    },
+    "-1969724936": {
+      "package": "com.tplink.smbcloud",
+      "app_name": "TP-LINK商云"
+    },
+    "-1367717479": {
+      "package": "com.trantor.genesis",
+      "app_name": "维迈通多多"
+    },
+    "1589164968": {
+      "package": "com.tymxa.gqshfhs",
+      "app_name": "高情商回复话术"
+    },
+    "-1709882794": {
+      "package": "com.sankuai.meituan",
+      "app_name": "美团"
+    },
+    "588474247": {
+      "package": "com.sankuai.movie",
+      "app_name": "猫眼"
+    },
+    "255610818": {
+      "package": "com.sdjuliang.yuanqijob",
+      "app_name": "元气兼职"
+    },
+    "-918490570": {
+      "package": "com.sdu.didi.psnger",
+      "app_name": "滴滴出行"
+    },
+    "-1892077856": {
+      "package": "com.sgcc.evs.echarge",
+      "app_name": "e充电"
+    },
+    "1875899872": {
+      "package": "com.sgcc.wsgw.cn",
+      "app_name": "网上国网"
+    },
+    "270344886": {
+      "package": "com.shanbay.news",
+      "app_name": "扇贝阅读"
+    },
+    "-822811590": {
+      "package": "com.shenyuan.militarynews",
+      "app_name": "环球新军事"
+    },
+    "-759128068": {
+      "package": "com.shizhuang.duapp",
+      "app_name": "得物"
+    },
+    "1536737232": {
+      "package": "com.sina.weibo",
+      "app_name": "微博"
+    },
+    "1590102142": {
+      "package": "com.sina.weibolite",
+      "app_name": "微博极速版"
+    },
+    "1695025949": {
+      "package": "com.sing.client",
+      "app_name": "5sing原创音乐"
+    },
+    "1546297161": {
+      "package": "com.sinyee.babybus.recommendapp",
+      "app_name": "宝宝巴士"
+    },
+    "1219698816": {
+      "package": "com.sixrpg.opalyer",
+      "app_name": "橙光阅读器"
+    },
+    "1659293491": {
+      "package": "com.smile.gifmaker",
+      "app_name": "快手"
+    },
+    "-744842507": {
+      "package": "com.snda.lantern.wifilocating",
+      "app_name": "WiFi万能钥匙极速版"
+    },
+    "559984781": {
+      "package": "com.snda.wifilocating",
+      "app_name": "WiFi万能钥匙"
+    },
+    "1319538838": {
+      "package": "com.sohu.newsclient",
+      "app_name": "搜狐新闻"
+    },
+    "321803898": {
+      "package": "com.sohu.sohuvideo",
+      "app_name": "搜狐视频"
+    },
+    "195210534": {
+      "package": "com.ss.android.article.lite",
+      "app_name": "今日头条极速版"
+    },
+    "195266379": {
+      "package": "com.ss.android.article.news",
+      "app_name": "今日头条"
+    },
+    "-1185078240": {
+      "package": "com.ss.android.article.search",
+      "app_name": "有柿"
+    },
+    "1765779203": {
+      "package": "com.ss.android.article.video",
+      "app_name": "西瓜视频"
+    },
+    "378881071": {
+      "package": "com.ss.android.auto",
+      "app_name": "懂车帝"
+    },
+    "313184810": {
+      "package": "com.ss.android.ugc.aweme",
+      "app_name": "抖音"
+    },
+    "-1414602254": {
+      "package": "com.ss.android.ugc.aweme.lite",
+      "app_name": "抖音极速版"
+    },
+    "-1652150487": {
+      "package": "com.ss.android.ugc.live",
+      "app_name": "抖音火山版"
+    },
+    "229330387": {
+      "package": "com.sup.android.superb",
+      "app_name": "皮皮虾"
+    },
+    "5992780": {
+      "package": "com.rarlab.rar",
+      "app_name": "RAR"
+    },
+    "-1846921724": {
+      "package": "com.renren.mobile.android",
+      "app_name": "人人直播"
+    },
+    "-330301876": {
+      "package": "com.rumtel.pandatv",
+      "app_name": "电视直播"
+    },
+    "-920735187": {
+      "package": "com.qidian.QDReader",
+      "app_name": "起点读书"
+    },
+    "-558836051": {
+      "package": "com.qinlin.edoor",
+      "app_name": "亲邻开门"
+    },
+    "2029054607": {
+      "package": "com.qisi.wallpaper",
+      "app_name": "壁纸主题大全"
+    },
+    "-1864872766": {
+      "package": "com.qiyi.video",
+      "app_name": "爱奇艺"
+    },
+    "876496474": {
+      "package": "com.qiyi.video.lite",
+      "app_name": "爱奇艺极速版"
+    },
+    "-1513662963": {
+      "package": "com.qp333.car",
+      "app_name": "汽修宝"
+    },
+    "-1544055932": {
+      "package": "com.qq.ac.android",
+      "app_name": "腾讯动漫"
+    },
+    "1907791813": {
+      "package": "com.qq.qcloud",
+      "app_name": "腾讯微云"
+    },
+    "1937929252": {
+      "package": "com.qq.reader",
+      "app_name": "QQ阅读"
+    },
+    "-2086095549": {
+      "package": "com.quark.browser",
+      "app_name": "夸克浏览器"
+    },
+    "978047406": {
+      "package": "com.Qunar",
+      "app_name": "去哪儿旅行"
+    },
+    "1047154881": {
+      "package": "com.pupumall.customer",
+      "app_name": "朴朴超市"
+    },
+    "1657185137": {
+      "package": "com.One.WoodenLetter",
+      "app_name": "一个木函"
+    },
+    "-379148275": {
+      "package": "com.nero.swiftlink.mirror",
+      "app_name": "雨燕投屏"
+    },
+    "1979515232": {
+      "package": "com.netease.cloudmusic",
+      "app_name": "网易云音乐"
+    },
+    "497239884": {
+      "package": "com.netease.lotterynews",
+      "app_name": "网易红彩"
+    },
+    "1143986695": {
+      "package": "com.netease.mail",
+      "app_name": "网易邮箱大师"
+    },
+    "1144086404": {
+      "package": "com.netease.play",
+      "app_name": "LOOK直播"
+    },
+    "662377423": {
+      "package": "com.netease.snailread",
+      "app_name": "网易蜗牛读书"
+    },
+    "-557467920": {
+      "package": "com.netease.uu",
+      "app_name": "UU加速器"
+    },
+    "1557402977": {
+      "package": "com.njgdmm.zjy",
+      "app_name": "最江阴"
+    },
+    "-1991835185": {
+      "package": "com.njh.biubiu",
+      "app_name": "biubiu加速器"
+    },
+    "-1717626045": {
+      "package": "com.nowcasting.activity",
+      "app_name": "彩云天气"
+    },
+    "1620268914": {
+      "package": "com.magicalstory.cleaner",
+      "app_name": "安卓清理君"
+    },
+    "810513273": {
+      "package": "com.meitu.meipaimv",
+      "app_name": "美拍"
+    },
+    "-766051647": {
+      "package": "com.mi.health",
+      "app_name": "小米运动健康"
+    },
+    "-1346391036": {
+      "package": "com.mihoyo.hyperion",
+      "app_name": "米游社"
+    },
+    "1305029671": {
+      "package": "com.mimikko.mimikkoui",
+      "app_name": "兽耳助手"
+    },
+    "-1520738335": {
+      "package": "com.miui.gallery",
+      "app_name": "MIUI 相册"
+    },
+    "-833566134": {
+      "package": "com.miui.huanji",
+      "app_name": "小米换机"
+    },
+    "-1665025453": {
+      "package": "com.miui.packageinstaller",
+      "app_name": "MIUI 应用包管理组件"
+    },
+    "-612834190": {
+      "package": "com.miui.player",
+      "app_name": "MIUI 音乐"
+    },
+    "-1239952740": {
+      "package": "com.miui.systemAdSolution",
+      "app_name": "MIUI 智能服务"
+    },
+    "-1730999113": {
+      "package": "com.mm.android.lc",
+      "app_name": "乐橙"
+    },
+    "1488133239": {
+      "package": "com.moji.mjweather",
+      "app_name": "墨迹天气"
+    },
+    "-328022007": {
+      "package": "com.mylikefonts.activity",
+      "app_name": "字体美化大师"
+    },
+    "320552729": {
+      "package": "com.mysteel.banksteeltwo",
+      "app_name": "钢银助手"
+    },
+    "1884443122": {
+      "package": "com.lbe.security.miui",
+      "app_name": "MIUI 权限管理服务"
+    },
+    "-1567553486": {
+      "package": "com.lemon.lv",
+      "app_name": "剪映"
+    },
+    "1620159901": {
+      "package": "com.lianjia.beike",
+      "app_name": "贝壳找房"
+    },
+    "2009078134": {
+      "package": "com.lijianqiang12.silent",
+      "app_name": "远离手机"
+    },
+    "1751022005": {
+      "package": "com.lmiot.autotool",
+      "app_name": "免ROOT自动化助手"
+    },
+    "-54547863": {
+      "package": "com.lolaage.tbulu.tools",
+      "app_name": "两步路户外助手"
+    },
+    "-1979924692": {
+      "package": "com.lp.lightawake",
+      "app_name": "轻醒"
+    },
+    "648308836": {
+      "package": "com.lphtsccft",
+      "app_name": "涨乐财富通"
+    },
+    "2056863498": {
+      "package": "com.lu.ashionweather",
+      "app_name": "天气预报"
+    },
+    "-1606001344": {
+      "package": "com.luna.music",
+      "app_name": "汽水音乐"
+    },
+    "1366626055": {
+      "package": "com.kmxs.reader",
+      "app_name": "七猫免费小说"
+    },
+    "-409980308": {
+      "package": "com.koolearn.ieltspro2019",
+      "app_name": "新东方雅思Pro"
+    },
+    "473713875": {
+      "package": "com.kuaishou.nebula",
+      "app_name": "快手极速版"
+    },
+    "460049591": {
+      "package": "com.kugou.android",
+      "app_name": "酷狗音乐"
+    },
+    "991562021": {
+      "package": "com.kugou.android.child",
+      "app_name": "酷狗儿歌"
+    },
+    "992705457": {
+      "package": "com.kugou.android.douge",
+      "app_name": "酷狗唱唱斗歌版"
+    },
+    "914144235": {
+      "package": "com.kugou.android.ktvapp",
+      "app_name": "酷狗唱唱"
+    },
+    "-1491765371": {
+      "package": "com.kugou.android.lite",
+      "app_name": "酷狗概念版"
+    },
+    "238075641": {
+      "package": "com.kugou.android.ringtone",
+      "app_name": "酷狗铃声"
+    },
+    "1644138715": {
+      "package": "com.kugou.android.tingshu",
+      "app_name": "酷狗听书"
+    },
+    "2128193854": {
+      "package": "com.kugou.dj",
+      "app_name": "酷狗DJ"
+    },
+    "239830085": {
+      "package": "com.kugou.fanxing",
+      "app_name": "酷狗直播"
+    },
+    "-524269385": {
+      "package": "com.kugou.fanxing.lite",
+      "app_name": "繁星直播"
+    },
+    "2130042610": {
+      "package": "com.kwai.thanos",
+      "app_name": "快手概念版"
+    },
+    "616434203": {
+      "package": "com.kwai.videoeditor",
+      "app_name": "快影"
+    },
+    "-527086868": {
+      "package": "com.jd.iots",
+      "app_name": "京东小家"
+    },
+    "-1161240227": {
+      "package": "com.jd.jdhealth",
+      "app_name": "京东健康"
+    },
+    "293886959": {
+      "package": "com.jd.jdlite",
+      "app_name": "京喜特价"
+    },
+    "841170930": {
+      "package": "com.jd.jrapp",
+      "app_name": "京东金融"
+    },
+    "-1839413884": {
+      "package": "com.jdd.motorfans",
+      "app_name": "摩托范"
+    },
+    "1000776385": {
+      "package": "com.jin10",
+      "app_name": "金十数据"
+    },
+    "1174097286": {
+      "package": "com.jingdong.app.mall",
+      "app_name": "京东"
+    },
+    "-1502821745": {
+      "package": "com.jingyao.easybike",
+      "app_name": "哈啰"
+    },
+    "114295028": {
+      "package": "com.jmgo.funcontrol",
+      "app_name": "坚果控"
+    },
+    "1788138577": {
+      "package": "com.job.android",
+      "app_name": "前程无忧51Job"
+    },
+    "-1960346768": {
+      "package": "com.jojoread.huiben",
+      "app_name": "叫叫绘本"
+    },
+    "-248012079": {
+      "package": "com.jym.mall",
+      "app_name": "交易猫"
+    },
+    "-198019159": {
+      "package": "com.ifeimo.audiorecord",
+      "app_name": "录音大师"
+    },
+    "-146860486": {
+      "package": "com.iflytek.vflynote",
+      "app_name": "讯飞语记"
+    },
+    "-1835777899": {
+      "package": "com.immomo.vchat",
+      "app_name": "赫兹"
+    },
+    "1659335438": {
+      "package": "com.intsig.camscanner",
+      "app_name": "扫描全能王"
+    },
+    "-1447059102": {
+      "package": "com.izaodao.gps",
+      "app_name": "五十音图"
+    },
+    "-662871885": {
+      "package": "com.henzanapp.miaomiaozhe",
+      "app_name": "喵喵折"
+    },
+    "-1556709909": {
+      "package": "com.hexin.plat.android",
+      "app_name": "同花顺"
+    },
+    "-76821059": {
+      "package": "com.hipu.yidian",
+      "app_name": "一点资讯"
+    },
+    "-524659007": {
+      "package": "com.hose.ekuaibao",
+      "app_name": "易快报"
+    },
+    "-2069018544": {
+      "package": "com.hpbr.bosszhipin",
+      "app_name": "BOSS直聘"
+    },
+    "-1637701853": {
+      "package": "com.huawei.appmarket",
+      "app_name": "华为应用市场"
+    },
+    "201325446": {
+      "package": "com.hunantv.imgo.activity",
+      "app_name": "芒果TV"
+    },
+    "101952197": {
+      "package": "com.hundsun.winner.pazq",
+      "app_name": "平安证券"
+    },
+    "-2028968188": {
+      "package": "com.hungrypanda.waimai",
+      "app_name": "熊猫外卖"
+    },
+    "-1065232334": {
+      "package": "com.hupu.games",
+      "app_name": "虎扑"
+    },
+    "555434215": {
+      "package": "com.ganji.android",
+      "app_name": "赶集直招"
+    },
+    "1575109845": {
+      "package": "com.ganji.android.haoche_c",
+      "app_name": "瓜子二手车"
+    },
+    "-2061428528": {
+      "package": "com.gemini.cloud.client",
+      "app_name": "双子星云手机"
+    },
+    "300761806": {
+      "package": "com.GFriends.app",
+      "app_name": "呱友"
+    },
+    "650999717": {
+      "package": "com.google.android.documentsui",
+      "app_name": "文件"
+    },
+    "495814814": {
+      "package": "com.gotokeep.keep",
+      "app_name": "Keep"
+    },
+    "2091464343": {
+      "package": "com.greenpoint.android.mc10086.activity",
+      "app_name": "中国移动"
+    },
+    "1662102643": {
+      "package": "com.guwendao.gwd",
+      "app_name": "古文岛"
+    },
+    "2037736697": {
+      "package": "com.f1player",
+      "app_name": "51虚拟机"
+    },
+    "-921040269": {
+      "package": "com.facetech.konking",
+      "app_name": "轻音社"
+    },
+    "167193980": {
+      "package": "com.fanli.android.apps",
+      "app_name": "返利"
+    },
+    "-2114933808": {
+      "package": "com.feicui.vdhelper",
+      "app_name": "翡翠视频"
+    },
+    "-528715135": {
+      "package": "com.felink.foregroundpaper",
+      "app_name": "全局透明壁纸"
+    },
+    "630814885": {
+      "package": "com.finace.market",
+      "app_name": "有道财富"
+    },
+    "1062801388": {
+      "package": "com.fq.wallpaper",
+      "app_name": "飞火动态壁纸"
+    },
+    "-358087111": {
+      "package": "com.eastmoney.android.berlin",
+      "app_name": "东方财富"
+    },
+    "1076661718": {
+      "package": "com.ecitic.bank.mobile",
+      "app_name": "中信银行"
+    },
+    "2049668591": {
+      "package": "com.eg.android.AlipayGphone",
+      "app_name": "支付宝"
+    },
+    "-133843480": {
+      "package": "com.estrongs.android.pop",
+      "app_name": "ES文件浏览器"
+    },
+    "884834226": {
+      "package": "com.excean.na",
+      "app_name": "99手游加速器"
+    },
+    "1091754941": {
+      "package": "com.dailyyoga.cn",
+      "app_name": "每日瑜伽"
+    },
+    "-1902185409": {
+      "package": "com.daimajia.gold",
+      "app_name": "稀土掘金"
+    },
+    "-811421306": {
+      "package": "com.daliao.live.show",
+      "app_name": "艾可直播"
+    },
+    "-530247198": {
+      "package": "com.damonplay.damonps2.free",
+      "app_name": "呆萌PS2模拟器"
+    },
+    "-91332804": {
+      "package": "com.daqo.wallpaper",
+      "app_name": "动漫壁纸大全"
+    },
+    "-1206397310": {
+      "package": "com.dmzj.manhua",
+      "app_name": "动漫之家"
+    },
+    "-2002547408": {
+      "package": "com.dongqiudi.news",
+      "app_name": "懂球帝"
+    },
+    "-1670877294": {
+      "package": "com.douban.frodo",
+      "app_name": "豆瓣"
+    },
+    "188162078": {
+      "package": "com.doulan.juxinding",
+      "app_name": "抖蓝直播"
+    },
+    "1519628819": {
+      "package": "com.doupin.show",
+      "app_name": "来电秀"
+    },
+    "949069732": {
+      "package": "com.dragon.read",
+      "app_name": "番茄免费小说"
+    },
+    "-1531462240": {
+      "package": "com.duoduo.cailing",
+      "app_name": "彩铃多多"
+    },
+    "-189732215": {
+      "package": "com.duokan.phone.remotecontroller",
+      "app_name": "万能遥控"
+    },
+    "-1255577144": {
+      "package": "com.duolingo",
+      "app_name": "多邻国"
+    },
+    "-895188853": {
+      "package": "com.duowan.kiwi",
+      "app_name": "虎牙直播"
+    },
+    "-1220851267": {
+      "package": "com.duowan.mobile",
+      "app_name": "YY"
+    },
+    "2053958218": {
+      "package": "com.caing.news",
+      "app_name": "财新"
+    },
+    "1073158053": {
+      "package": "com.cainiao.wireless",
+      "app_name": "菜鸟裹裹"
+    },
+    "-1830100133": {
+      "package": "com.cctv.yangshipin.app.androidp",
+      "app_name": "央视频"
+    },
+    "-2145732654": {
+      "package": "com.cctv4g.cctvmobiletv",
+      "app_name": "CCTV手机电视"
+    },
+    "157540905": {
+      "package": "com.cfitcxwl.kdyutbu",
+      "app_name": "囧次元"
+    },
+    "1868020298": {
+      "package": "com.chinamobile.mcloud",
+      "app_name": "中国移动云盘"
+    },
+    "-2116363580": {
+      "package": "com.chinaso.so",
+      "app_name": "花漾搜索"
+    },
+    "1391684449": {
+      "package": "com.cloudcomputer.cloudnetworkcafe",
+      "app_name": "电讯云网咖"
+    },
+    "1893781697": {
+      "package": "com.cmbchina.ccd.pluto.cmbActivity",
+      "app_name": "掌上生活"
+    },
+    "1185278458": {
+      "package": "com.cmcc.cmvideo",
+      "app_name": "咪咕视频"
+    },
+    "1516206044": {
+      "package": "com.cmcc.hebao",
+      "app_name": "和包"
+    },
+    "1314748790": {
+      "package": "com.cmri.universalapp",
+      "app_name": "和家亲"
+    },
+    "-1623425929": {
+      "package": "com.cnspeedtest.globalspeed",
+      "app_name": "全球网测"
+    },
+    "-1869705199": {
+      "package": "com.comic.cartoon36",
+      "app_name": "36漫画"
+    },
+    "847156324": {
+      "package": "com.coolapk.market",
+      "app_name": "酷安"
+    },
+    "2016444138": {
+      "package": "com.cssq.pandaplayet",
+      "app_name": "熊猫短剧"
+    },
+    "1983218619": {
+      "package": "com.ct.client",
+      "app_name": "中国电信"
+    },
+    "-7542465": {
+      "package": "com.cubic.autohome",
+      "app_name": "汽车之家"
+    },
+    "953551389": {
+      "package": "com.cxzapp.yidianling",
+      "app_name": "壹点灵"
+    },
+    "744792033": {
+      "package": "com.baidu.BaiduMap",
+      "app_name": "百度地图"
+    },
+    "1511326008": {
+      "package": "com.baidu.baijia",
+      "app_name": "百家号"
+    },
+    "325847140": {
+      "package": "com.baidu.baike",
+      "app_name": "百度百科"
+    },
+    "-84768776": {
+      "package": "com.baidu.browser.apps",
+      "app_name": "百度浏览器"
+    },
+    "1890818956": {
+      "package": "com.baidu.doctor.doctoranswer",
+      "app_name": "百度健康医生版"
+    },
+    "-1657078324": {
+      "package": "com.baidu.doctorbox",
+      "app_name": "有医笔记"
+    },
+    "1683280386": {
+      "package": "com.baidu.haokan",
+      "app_name": "好看视频"
+    },
+    "-2092209424": {
+      "package": "com.baidu.homework",
+      "app_name": "作业帮"
+    },
+    "332614644": {
+      "package": "com.baidu.iknow",
+      "app_name": "百度知道"
+    },
+    "1791072826": {
+      "package": "com.baidu.netdisk",
+      "app_name": "百度网盘"
+    },
+    "-796004189": {
+      "package": "com.baidu.searchbox",
+      "app_name": "百度"
+    },
+    "1889695195": {
+      "package": "com.baidu.searchbox.senior",
+      "app_name": "百度关怀版"
+    },
+    "1309104121": {
+      "package": "com.baidu.searchbox.tomas",
+      "app_name": "百度大字版"
+    },
+    "-1930986565": {
+      "package": "com.baidu.student",
+      "app_name": "不挂科"
+    },
+    "342704719": {
+      "package": "com.baidu.tieba",
+      "app_name": "百度贴吧"
+    },
+    "345365066": {
+      "package": "com.baidu.wenku",
+      "app_name": "百度文库"
+    },
+    "651433099": {
+      "package": "com.baidu.xin.aiqicha",
+      "app_name": "爱企查"
+    },
+    "1600359417": {
+      "package": "com.baidu.ybb",
+      "app_name": "游帮帮加速器"
+    },
+    "-1161217159": {
+      "package": "com.banban.kuxiu",
+      "app_name": "酷秀LIVE"
+    },
+    "725735704": {
+      "package": "com.bestv.app",
+      "app_name": "百视TV"
+    },
+    "960022320": {
+      "package": "com.boc.bocgmsma",
+      "app_name": "对接会助手"
+    },
+    "-1877153607": {
+      "package": "com.boc.gmsa",
+      "app_name": "中银e企赢"
+    },
+    "1337821420": {
+      "package": "com.booking",
+      "app_name": "Booking.com缤客"
+    },
+    "-405478795": {
+      "package": "com.btzx0313.app",
+      "app_name": "必拓资讯"
+    },
+    "-1109425407": {
+      "package": "com.abk.fitter",
+      "app_name": "安帮客师傅端"
+    },
+    "2123438483": {
+      "package": "com.achievo.vipshop",
+      "app_name": "唯品会"
+    },
+    "-1527971724": {
+      "package": "com.alibaba.ailabs.tg",
+      "app_name": "天猫精灵"
+    },
+    "-1930444755": {
+      "package": "com.alibaba.aliexpresshd",
+      "app_name": "Aliexpress/全球速卖通"
+    },
+    "1335515207": {
+      "package": "com.alibaba.android.rimet",
+      "app_name": "钉钉"
+    },
+    "644871869": {
+      "package": "com.alibaba.wireless",
+      "app_name": "阿里巴巴"
+    },
+    "-1854575849": {
+      "package": "com.alicloud.databox",
+      "app_name": "阿里云盘"
+    },
+    "-1731486278": {
+      "package": "com.android.bankabc",
+      "app_name": "中国农业银行"
+    },
+    "1799462192": {
+      "package": "com.android.thememanager",
+      "app_name": "MIUI 主题壁纸"
+    },
+    "-1046965711": {
+      "package": "com.android.vending",
+      "app_name": "Play商店"
+    },
+    "-945730221": {
+      "package": "com.anjuke.android.app",
+      "app_name": "安居客"
+    },
+    "1836227312": {
+      "package": "com.apowersoft.letsview",
+      "app_name": "幕连"
+    },
+    "1254578009": {
+      "package": "com.autonavi.minimap",
+      "app_name": "高德地图"
+    },
+    "-54120092": {
+      "package": "cn.ccspeed",
+      "app_name": "CC加速器"
+    },
+    "863298512": {
+      "package": "cn.cntv",
+      "app_name": "央视影音"
+    },
+    "125486076": {
+      "package": "cn.com.ruijie.magicbox",
+      "app_name": "无线魔盒"
+    },
+    "-179660078": {
+      "package": "cn.etouch.ecalendar",
+      "app_name": "中华万年历"
+    },
+    "2078928257": {
+      "package": "cn.gogpay.dcb",
+      "app_name": "多彩宝"
+    },
+    "-322418038": {
+      "package": "cn.gov.pbc.dcep",
+      "app_name": "数字人民币"
+    },
+    "93910113": {
+      "package": "cn.jingzhuan.stock",
+      "app_name": "经传多赢股票"
+    },
+    "1429484426": {
+      "package": "cn.kuwo.player",
+      "app_name": "酷我音乐"
+    },
+    "1032792361": {
+      "package": "cn.lingwoyun.cpc",
+      "app_name": "领沃云电脑"
+    },
+    "-396646979": {
+      "package": "cn.missevan",
+      "app_name": "猫耳FM"
+    },
+    "641733616": {
+      "package": "cn.neoclub.uki",
+      "app_name": "Uki"
+    },
+    "891862624": {
+      "package": "cn.quicktv.androidpro",
+      "app_name": "影视大全WTV"
+    },
+    "1661249612": {
+      "package": "cn.soulapp.android",
+      "app_name": "Soul"
+    },
+    "886316827": {
+      "package": "cn.wps.yun",
+      "app_name": "金山文档"
+    },
+    "1272214412": {
+      "package": "cn.wywk.app",
+      "app_name": "网鱼"
+    },
+    "-2119218027": {
+      "package": "cn.xiaochuankeji.tieba",
+      "app_name": "最右"
+    },
+    "232580377": {
+      "package": "cn.xiaochuankeji.zuiyouLite",
+      "app_name": "皮皮搞笑"
+    },
+    "-532693094": {
+      "package": "bin.mt.plus",
+      "app_name": "MT管理器"
+    },
+    "1596265335": {
+      "package": "bubei.tingshu",
+      "app_name": "懒人听书"
+    },
+    "-1667428321": {
+      "package": "air.tv.douyu.android",
+      "app_name": "斗鱼"
+    },
+    "132785423": {
+      "package": "android.zhibo8",
+      "app_name": "直播吧"
+    }
+  },
+  "by_package": {
+    "www.imxiaoyu.com.musiceditor": {
+      "hash": -1500338227,
+      "app_name": "音乐剪辑大师"
+    },
+    "tv.danmaku.bili": {
+      "hash": 1994036591,
+      "app_name": "哔哩哔哩"
+    },
+    "sshky.wjglq.rena": {
+      "hash": 1539906291,
+      "app_name": "jmcomic"
+    },
+    "org.ajmd": {
+      "hash": 1268902986,
+      "app_name": "阿基米德"
+    },
+    "org.fungo.fungolive": {
+      "hash": -1048697214,
+      "app_name": "天天电视直播"
+    },
+    "org.telegram.messenger.web": {
+      "hash": -733096426,
+      "app_name": "Telegram"
+    },
+    "org.zwanoo.android.speedtest": {
+      "hash": -1053900032,
+      "app_name": "Speedtest"
+    },
+    "net.csdn.csdnplus": {
+      "hash": 199342455,
+      "app_name": "CSDN"
+    },
+    "net.unitepower.zhitong": {
+      "hash": 1827421494,
+      "app_name": "智通人才网"
+    },
+    "me.ele": {
+      "hash": -1079643320,
+      "app_name": "饿了么"
+    },
+    "im.xingzhe": {
+      "hash": -2096096381,
+      "app_name": "行者"
+    },
+    "io.iftech.android.box": {
+      "hash": -747700391,
+      "app_name": "小组件盒子"
+    },
+    "huo.niao.ansijhe": {
+      "hash": 818881643,
+      "app_name": "火焰视频"
+    },
+    "gov.pianzong.androidnga": {
+      "hash": -173873869,
+      "app_name": "NGA玩家社区"
+    },
+    "fm.qingting.qtradio": {
+      "hash": -1865688240,
+      "app_name": "蜻蜓FM"
+    },
+    "cmb.pb": {
+      "hash": -1357050264,
+      "app_name": "招商银行"
+    },
+    "com.A": {
+      "hash": 94841620,
+      "app_name": ""
+    },
+    "com.B": {
+      "hash": 94841621,
+      "app_name": ""
+    },
+    "com.C": {
+      "hash": 94841622,
+      "app_name": ""
+    },
+    "com.D": {
+      "hash": 94841623,
+      "app_name": ""
+    },
+    "com.E": {
+      "hash": 94841624,
+      "app_name": ""
+    },
+    "com.F": {
+      "hash": 94841625,
+      "app_name": ""
+    },
+    "com.G": {
+      "hash": 94841626,
+      "app_name": ""
+    },
+    "com.H": {
+      "hash": 94841627,
+      "app_name": ""
+    },
+    "com.I": {
+      "hash": 94841628,
+      "app_name": ""
+    },
+    "com.J": {
+      "hash": 94841629,
+      "app_name": ""
+    },
+    "com.K": {
+      "hash": 94841630,
+      "app_name": ""
+    },
+    "com.L": {
+      "hash": 94841631,
+      "app_name": ""
+    },
+    "com.M": {
+      "hash": 94841632,
+      "app_name": ""
+    },
+    "com.N": {
+      "hash": 94841633,
+      "app_name": ""
+    },
+    "com.O": {
+      "hash": 94841634,
+      "app_name": ""
+    },
+    "com.P": {
+      "hash": 94841635,
+      "app_name": ""
+    },
+    "com.Q": {
+      "hash": 94841636,
+      "app_name": ""
+    },
+    "com.R": {
+      "hash": 94841637,
+      "app_name": ""
+    },
+    "com.S": {
+      "hash": 94841638,
+      "app_name": ""
+    },
+    "com.T": {
+      "hash": 94841639,
+      "app_name": ""
+    },
+    "com.U": {
+      "hash": 94841640,
+      "app_name": ""
+    },
+    "com.V": {
+      "hash": 94841641,
+      "app_name": ""
+    },
+    "com.W": {
+      "hash": 94841642,
+      "app_name": ""
+    },
+    "com.X": {
+      "hash": 94841643,
+      "app_name": ""
+    },
+    "com.Y": {
+      "hash": 94841644,
+      "app_name": ""
+    },
+    "com.Z": {
+      "hash": 94841645,
+      "app_name": ""
+    },
+    "com.zhanlang.dailyscreen": {
+      "hash": 28505069,
+      "app_name": "录屏屏幕录制"
+    },
+    "com.zhaopin.social": {
+      "hash": -807718193,
+      "app_name": "智联招聘"
+    },
+    "com.zhihu.android": {
+      "hash": 752555548,
+      "app_name": "知乎"
+    },
+    "com.zhubajie.client": {
+      "hash": -1163495604,
+      "app_name": "猪八戒"
+    },
+    "com.zjwh.android_wh_physicalfitness": {
+      "hash": -1534473421,
+      "app_name": "运动世界校园"
+    },
+    "com.zsyj.trans": {
+      "hash": 652719697,
+      "app_name": "全局透明壁纸"
+    },
+    "com.zuoyebang.airclass": {
+      "hash": -156204975,
+      "app_name": "作业帮直播课"
+    },
+    "com.yangcong345.android.phone": {
+      "hash": 1970409442,
+      "app_name": "洋葱学园-原洋葱数学"
+    },
+    "com.yiche.autoeasy": {
+      "hash": -1781124388,
+      "app_name": "易车"
+    },
+    "com.yingyeting.shouji": {
+      "hash": -1895428968,
+      "app_name": "网上营业厅"
+    },
+    "com.yipiao": {
+      "hash": 1388849156,
+      "app_name": "智行火车票12306抢票"
+    },
+    "com.yishouapp.fumi": {
+      "hash": -1478231696,
+      "app_name": "一手服装批发"
+    },
+    "com.yitong.mbank.psbc": {
+      "hash": 1773314214,
+      "app_name": "邮储银行"
+    },
+    "com.yixia.videoeditor": {
+      "hash": -1215205363,
+      "app_name": "秒拍"
+    },
+    "com.ylzinfo.chinahrss": {
+      "hash": -243402277,
+      "app_name": "掌上12333"
+    },
+    "com.youdao.course": {
+      "hash": -862766679,
+      "app_name": "有道精品课"
+    },
+    "com.youdao.lingshi.aicard": {
+      "hash": -360330826,
+      "app_name": "有道领世"
+    },
+    "com.youku.phone": {
+      "hash": -1692253156,
+      "app_name": "优酷视频"
+    },
+    "com.youqi.fjjf": {
+      "hash": 354525348,
+      "app_name": "饭橘"
+    },
+    "com.yy.yomi": {
+      "hash": 502255059,
+      "app_name": "Yo语音"
+    },
+    "com.xiachufang": {
+      "hash": -1488821919,
+      "app_name": "下厨房"
+    },
+    "com.xiaohu.olevodmobile": {
+      "hash": 1386065562,
+      "app_name": "欧乐影院"
+    },
+    "com.xiaomi.gamecenter": {
+      "hash": 947418797,
+      "app_name": "MIUI 游戏中心"
+    },
+    "com.xiaomi.hm.health": {
+      "hash": 1966418623,
+      "app_name": "Zeep Life"
+    },
+    "com.xiaomi.market": {
+      "hash": 560468770,
+      "app_name": "小米应用商店"
+    },
+    "com.xiaomi.smarthome": {
+      "hash": 1877659010,
+      "app_name": "米家"
+    },
+    "com.xiaomi.vipaccount": {
+      "hash": -1898417322,
+      "app_name": "小米社区"
+    },
+    "com.ximalaya.ting.android": {
+      "hash": 706813998,
+      "app_name": "喜马拉雅"
+    },
+    "com.ximi.weightrecord": {
+      "hash": 1744979357,
+      "app_name": "体重小本"
+    },
+    "com.xingin.xhs": {
+      "hash": -1031558479,
+      "app_name": "小红书"
+    },
+    "com.xs.fm": {
+      "hash": 1013943789,
+      "app_name": "番茄畅听"
+    },
+    "com.xs.fm.lite": {
+      "hash": 1667762191,
+      "app_name": "番茄畅听音乐版"
+    },
+    "com.xueqiu.android": {
+      "hash": 1056984291,
+      "app_name": "雪球"
+    },
+    "com.xunlei.downloadprovider": {
+      "hash": -894368837,
+      "app_name": "迅雷"
+    },
+    "com.xunlei.tdlive": {
+      "hash": -1703768290,
+      "app_name": "迅雷直播"
+    },
+    "com.xunmeng.pinduoduo": {
+      "hash": -69877540,
+      "app_name": "拼多多"
+    },
+    "com.xunruifairy.wallpaper": {
+      "hash": 1984799751,
+      "app_name": "壁纸精灵"
+    },
+    "com.xyhui": {
+      "hash": 1014178734,
+      "app_name": "PU口袋校园"
+    },
+    "com.wandoujia.eyepetizer": {
+      "hash": -357699061,
+      "app_name": "开眼"
+    },
+    "com.weaver.emobile7": {
+      "hash": -506597855,
+      "app_name": "EMobile7"
+    },
+    "com.wepie.weplay": {
+      "hash": -2003752385,
+      "app_name": "会玩"
+    },
+    "com.whty.wicity.china": {
+      "hash": -34617839,
+      "app_name": "和生活"
+    },
+    "com.woapp.hebei": {
+      "hash": -629891177,
+      "app_name": "联通智家"
+    },
+    "com.wuba": {
+      "hash": -660055062,
+      "app_name": "58同城"
+    },
+    "com.wuba.zhuanzhuan": {
+      "hash": -1943382780,
+      "app_name": "转转"
+    },
+    "com.vipkid.app": {
+      "hash": 2092879561,
+      "app_name": "VIPKID英语"
+    },
+    "com.UCMobile": {
+      "hash": 270694045,
+      "app_name": "UC浏览器"
+    },
+    "com.unionpay": {
+      "hash": 515982662,
+      "app_name": "云闪付"
+    },
+    "com.taobao.idlefish": {
+      "hash": 1276497535,
+      "app_name": "闲鱼"
+    },
+    "com.taobao.live": {
+      "hash": 2138010815,
+      "app_name": "点淘"
+    },
+    "com.taobao.taobao": {
+      "hash": 1855462465,
+      "app_name": "淘宝"
+    },
+    "com.taobao.trip": {
+      "hash": 2138257400,
+      "app_name": "飞猪旅行"
+    },
+    "com.taptap": {
+      "hash": 1238325805,
+      "app_name": "TapTap"
+    },
+    "com.technicalperson": {
+      "hash": -895263099,
+      "app_name": "技术人"
+    },
+    "com.telecom.video": {
+      "hash": 1651531703,
+      "app_name": "天翼超高清"
+    },
+    "com.tencent.androidqqmail": {
+      "hash": -1518567568,
+      "app_name": "QQ邮箱"
+    },
+    "com.tencent.easyearn": {
+      "hash": 265439280,
+      "app_name": "企鹅汇图"
+    },
+    "com.tencent.edu": {
+      "hash": -103532384,
+      "app_name": "腾讯课堂"
+    },
+    "com.tencent.karaoke": {
+      "hash": 1175536078,
+      "app_name": "全民K歌"
+    },
+    "com.tencent.map": {
+      "hash": -103524794,
+      "app_name": "腾讯地图"
+    },
+    "com.tencent.mm": {
+      "hash": -973170826,
+      "app_name": "微信"
+    },
+    "com.tencent.mobileqq": {
+      "hash": 361910168,
+      "app_name": "QQ"
+    },
+    "com.tencent.mtt": {
+      "hash": -103524201,
+      "app_name": "QQ浏览器"
+    },
+    "com.tencent.news": {
+      "hash": 1085732649,
+      "app_name": "腾讯新闻"
+    },
+    "com.tencent.now": {
+      "hash": -103523392,
+      "app_name": "腾讯NOW直播"
+    },
+    "com.tencent.podoteng": {
+      "hash": 1358411530,
+      "app_name": "PODO漫画"
+    },
+    "com.tencent.qqlive": {
+      "hash": -191341086,
+      "app_name": "腾讯视频"
+    },
+    "com.tencent.qqmusic": {
+      "hash": -1635328017,
+      "app_name": "QQ音乐"
+    },
+    "com.tencent.qqpimsecure": {
+      "hash": -245593387,
+      "app_name": "腾讯手机管家"
+    },
+    "com.tencent.transfer": {
+      "hash": -1979578047,
+      "app_name": "换机助手"
+    },
+    "com.tencent.weishi": {
+      "hash": -30728625,
+      "app_name": "微视"
+    },
+    "com.tencent.wemeet.app": {
+      "hash": 1380298910,
+      "app_name": "腾讯会议"
+    },
+    "com.tencent.wework": {
+      "hash": -30315083,
+      "app_name": "企业微信"
+    },
+    "com.tianyancha.skyeye": {
+      "hash": 1511151769,
+      "app_name": "天眼查"
+    },
+    "com.tmall.wireless": {
+      "hash": 1197124177,
+      "app_name": "手机天猫"
+    },
+    "com.to8to.housekeeper": {
+      "hash": -874484145,
+      "app_name": "土巴兔装修"
+    },
+    "com.tongcheng.android": {
+      "hash": 991394745,
+      "app_name": "同程旅行"
+    },
+    "com.tplink.smbcloud": {
+      "hash": -1969724936,
+      "app_name": "TP-LINK商云"
+    },
+    "com.trantor.genesis": {
+      "hash": -1367717479,
+      "app_name": "维迈通多多"
+    },
+    "com.tymxa.gqshfhs": {
+      "hash": 1589164968,
+      "app_name": "高情商回复话术"
+    },
+    "com.sankuai.meituan": {
+      "hash": -1709882794,
+      "app_name": "美团"
+    },
+    "com.sankuai.movie": {
+      "hash": 588474247,
+      "app_name": "猫眼"
+    },
+    "com.sdjuliang.yuanqijob": {
+      "hash": 255610818,
+      "app_name": "元气兼职"
+    },
+    "com.sdu.didi.psnger": {
+      "hash": -918490570,
+      "app_name": "滴滴出行"
+    },
+    "com.sgcc.evs.echarge": {
+      "hash": -1892077856,
+      "app_name": "e充电"
+    },
+    "com.sgcc.wsgw.cn": {
+      "hash": 1875899872,
+      "app_name": "网上国网"
+    },
+    "com.shanbay.news": {
+      "hash": 270344886,
+      "app_name": "扇贝阅读"
+    },
+    "com.shenyuan.militarynews": {
+      "hash": -822811590,
+      "app_name": "环球新军事"
+    },
+    "com.shizhuang.duapp": {
+      "hash": -759128068,
+      "app_name": "得物"
+    },
+    "com.sina.weibo": {
+      "hash": 1536737232,
+      "app_name": "微博"
+    },
+    "com.sina.weibolite": {
+      "hash": 1590102142,
+      "app_name": "微博极速版"
+    },
+    "com.sing.client": {
+      "hash": 1695025949,
+      "app_name": "5sing原创音乐"
+    },
+    "com.sinyee.babybus.recommendapp": {
+      "hash": 1546297161,
+      "app_name": "宝宝巴士"
+    },
+    "com.sixrpg.opalyer": {
+      "hash": 1219698816,
+      "app_name": "橙光阅读器"
+    },
+    "com.smile.gifmaker": {
+      "hash": 1659293491,
+      "app_name": "快手"
+    },
+    "com.snda.lantern.wifilocating": {
+      "hash": -744842507,
+      "app_name": "WiFi万能钥匙极速版"
+    },
+    "com.snda.wifilocating": {
+      "hash": 559984781,
+      "app_name": "WiFi万能钥匙"
+    },
+    "com.sohu.newsclient": {
+      "hash": 1319538838,
+      "app_name": "搜狐新闻"
+    },
+    "com.sohu.sohuvideo": {
+      "hash": 321803898,
+      "app_name": "搜狐视频"
+    },
+    "com.ss.android.article.lite": {
+      "hash": 195210534,
+      "app_name": "今日头条极速版"
+    },
+    "com.ss.android.article.news": {
+      "hash": 195266379,
+      "app_name": "今日头条"
+    },
+    "com.ss.android.article.search": {
+      "hash": -1185078240,
+      "app_name": "有柿"
+    },
+    "com.ss.android.article.video": {
+      "hash": 1765779203,
+      "app_name": "西瓜视频"
+    },
+    "com.ss.android.auto": {
+      "hash": 378881071,
+      "app_name": "懂车帝"
+    },
+    "com.ss.android.ugc.aweme": {
+      "hash": 313184810,
+      "app_name": "抖音"
+    },
+    "com.ss.android.ugc.aweme.lite": {
+      "hash": -1414602254,
+      "app_name": "抖音极速版"
+    },
+    "com.ss.android.ugc.live": {
+      "hash": -1652150487,
+      "app_name": "抖音火山版"
+    },
+    "com.sup.android.superb": {
+      "hash": 229330387,
+      "app_name": "皮皮虾"
+    },
+    "com.rarlab.rar": {
+      "hash": 5992780,
+      "app_name": "RAR"
+    },
+    "com.renren.mobile.android": {
+      "hash": -1846921724,
+      "app_name": "人人直播"
+    },
+    "com.rumtel.pandatv": {
+      "hash": -330301876,
+      "app_name": "电视直播"
+    },
+    "com.qidian.QDReader": {
+      "hash": -920735187,
+      "app_name": "起点读书"
+    },
+    "com.qinlin.edoor": {
+      "hash": -558836051,
+      "app_name": "亲邻开门"
+    },
+    "com.qisi.wallpaper": {
+      "hash": 2029054607,
+      "app_name": "壁纸主题大全"
+    },
+    "com.qiyi.video": {
+      "hash": -1864872766,
+      "app_name": "爱奇艺"
+    },
+    "com.qiyi.video.lite": {
+      "hash": 876496474,
+      "app_name": "爱奇艺极速版"
+    },
+    "com.qp333.car": {
+      "hash": -1513662963,
+      "app_name": "汽修宝"
+    },
+    "com.qq.ac.android": {
+      "hash": -1544055932,
+      "app_name": "腾讯动漫"
+    },
+    "com.qq.qcloud": {
+      "hash": 1907791813,
+      "app_name": "腾讯微云"
+    },
+    "com.qq.reader": {
+      "hash": 1937929252,
+      "app_name": "QQ阅读"
+    },
+    "com.quark.browser": {
+      "hash": -2086095549,
+      "app_name": "夸克浏览器"
+    },
+    "com.Qunar": {
+      "hash": 978047406,
+      "app_name": "去哪儿旅行"
+    },
+    "com.pupumall.customer": {
+      "hash": 1047154881,
+      "app_name": "朴朴超市"
+    },
+    "com.One.WoodenLetter": {
+      "hash": 1657185137,
+      "app_name": "一个木函"
+    },
+    "com.nero.swiftlink.mirror": {
+      "hash": -379148275,
+      "app_name": "雨燕投屏"
+    },
+    "com.netease.cloudmusic": {
+      "hash": 1979515232,
+      "app_name": "网易云音乐"
+    },
+    "com.netease.lotterynews": {
+      "hash": 497239884,
+      "app_name": "网易红彩"
+    },
+    "com.netease.mail": {
+      "hash": 1143986695,
+      "app_name": "网易邮箱大师"
+    },
+    "com.netease.play": {
+      "hash": 1144086404,
+      "app_name": "LOOK直播"
+    },
+    "com.netease.snailread": {
+      "hash": 662377423,
+      "app_name": "网易蜗牛读书"
+    },
+    "com.netease.uu": {
+      "hash": -557467920,
+      "app_name": "UU加速器"
+    },
+    "com.njgdmm.zjy": {
+      "hash": 1557402977,
+      "app_name": "最江阴"
+    },
+    "com.njh.biubiu": {
+      "hash": -1991835185,
+      "app_name": "biubiu加速器"
+    },
+    "com.nowcasting.activity": {
+      "hash": -1717626045,
+      "app_name": "彩云天气"
+    },
+    "com.magicalstory.cleaner": {
+      "hash": 1620268914,
+      "app_name": "安卓清理君"
+    },
+    "com.meitu.meipaimv": {
+      "hash": 810513273,
+      "app_name": "美拍"
+    },
+    "com.mi.health": {
+      "hash": -766051647,
+      "app_name": "小米运动健康"
+    },
+    "com.mihoyo.hyperion": {
+      "hash": -1346391036,
+      "app_name": "米游社"
+    },
+    "com.mimikko.mimikkoui": {
+      "hash": 1305029671,
+      "app_name": "兽耳助手"
+    },
+    "com.miui.gallery": {
+      "hash": -1520738335,
+      "app_name": "MIUI 相册"
+    },
+    "com.miui.huanji": {
+      "hash": -833566134,
+      "app_name": "小米换机"
+    },
+    "com.miui.packageinstaller": {
+      "hash": -1665025453,
+      "app_name": "MIUI 应用包管理组件"
+    },
+    "com.miui.player": {
+      "hash": -612834190,
+      "app_name": "MIUI 音乐"
+    },
+    "com.miui.systemAdSolution": {
+      "hash": -1239952740,
+      "app_name": "MIUI 智能服务"
+    },
+    "com.mm.android.lc": {
+      "hash": -1730999113,
+      "app_name": "乐橙"
+    },
+    "com.moji.mjweather": {
+      "hash": 1488133239,
+      "app_name": "墨迹天气"
+    },
+    "com.mylikefonts.activity": {
+      "hash": -328022007,
+      "app_name": "字体美化大师"
+    },
+    "com.mysteel.banksteeltwo": {
+      "hash": 320552729,
+      "app_name": "钢银助手"
+    },
+    "com.lbe.security.miui": {
+      "hash": 1884443122,
+      "app_name": "MIUI 权限管理服务"
+    },
+    "com.lemon.lv": {
+      "hash": -1567553486,
+      "app_name": "剪映"
+    },
+    "com.lianjia.beike": {
+      "hash": 1620159901,
+      "app_name": "贝壳找房"
+    },
+    "com.lijianqiang12.silent": {
+      "hash": 2009078134,
+      "app_name": "远离手机"
+    },
+    "com.lmiot.autotool": {
+      "hash": 1751022005,
+      "app_name": "免ROOT自动化助手"
+    },
+    "com.lolaage.tbulu.tools": {
+      "hash": -54547863,
+      "app_name": "两步路户外助手"
+    },
+    "com.lp.lightawake": {
+      "hash": -1979924692,
+      "app_name": "轻醒"
+    },
+    "com.lphtsccft": {
+      "hash": 648308836,
+      "app_name": "涨乐财富通"
+    },
+    "com.lu.ashionweather": {
+      "hash": 2056863498,
+      "app_name": "天气预报"
+    },
+    "com.luna.music": {
+      "hash": -1606001344,
+      "app_name": "汽水音乐"
+    },
+    "com.kmxs.reader": {
+      "hash": 1366626055,
+      "app_name": "七猫免费小说"
+    },
+    "com.koolearn.ieltspro2019": {
+      "hash": -409980308,
+      "app_name": "新东方雅思Pro"
+    },
+    "com.kuaishou.nebula": {
+      "hash": 473713875,
+      "app_name": "快手极速版"
+    },
+    "com.kugou.android": {
+      "hash": 460049591,
+      "app_name": "酷狗音乐"
+    },
+    "com.kugou.android.child": {
+      "hash": 991562021,
+      "app_name": "酷狗儿歌"
+    },
+    "com.kugou.android.douge": {
+      "hash": 992705457,
+      "app_name": "酷狗唱唱斗歌版"
+    },
+    "com.kugou.android.ktvapp": {
+      "hash": 914144235,
+      "app_name": "酷狗唱唱"
+    },
+    "com.kugou.android.lite": {
+      "hash": -1491765371,
+      "app_name": "酷狗概念版"
+    },
+    "com.kugou.android.ringtone": {
+      "hash": 238075641,
+      "app_name": "酷狗铃声"
+    },
+    "com.kugou.android.tingshu": {
+      "hash": 1644138715,
+      "app_name": "酷狗听书"
+    },
+    "com.kugou.dj": {
+      "hash": 2128193854,
+      "app_name": "酷狗DJ"
+    },
+    "com.kugou.fanxing": {
+      "hash": 239830085,
+      "app_name": "酷狗直播"
+    },
+    "com.kugou.fanxing.lite": {
+      "hash": -524269385,
+      "app_name": "繁星直播"
+    },
+    "com.kwai.thanos": {
+      "hash": 2130042610,
+      "app_name": "快手概念版"
+    },
+    "com.kwai.videoeditor": {
+      "hash": 616434203,
+      "app_name": "快影"
+    },
+    "com.jd.iots": {
+      "hash": -527086868,
+      "app_name": "京东小家"
+    },
+    "com.jd.jdhealth": {
+      "hash": -1161240227,
+      "app_name": "京东健康"
+    },
+    "com.jd.jdlite": {
+      "hash": 293886959,
+      "app_name": "京喜特价"
+    },
+    "com.jd.jrapp": {
+      "hash": 841170930,
+      "app_name": "京东金融"
+    },
+    "com.jdd.motorfans": {
+      "hash": -1839413884,
+      "app_name": "摩托范"
+    },
+    "com.jin10": {
+      "hash": 1000776385,
+      "app_name": "金十数据"
+    },
+    "com.jingdong.app.mall": {
+      "hash": 1174097286,
+      "app_name": "京东"
+    },
+    "com.jingyao.easybike": {
+      "hash": -1502821745,
+      "app_name": "哈啰"
+    },
+    "com.jmgo.funcontrol": {
+      "hash": 114295028,
+      "app_name": "坚果控"
+    },
+    "com.job.android": {
+      "hash": 1788138577,
+      "app_name": "前程无忧51Job"
+    },
+    "com.jojoread.huiben": {
+      "hash": -1960346768,
+      "app_name": "叫叫绘本"
+    },
+    "com.jym.mall": {
+      "hash": -248012079,
+      "app_name": "交易猫"
+    },
+    "com.ifeimo.audiorecord": {
+      "hash": -198019159,
+      "app_name": "录音大师"
+    },
+    "com.iflytek.vflynote": {
+      "hash": -146860486,
+      "app_name": "讯飞语记"
+    },
+    "com.immomo.vchat": {
+      "hash": -1835777899,
+      "app_name": "赫兹"
+    },
+    "com.intsig.camscanner": {
+      "hash": 1659335438,
+      "app_name": "扫描全能王"
+    },
+    "com.izaodao.gps": {
+      "hash": -1447059102,
+      "app_name": "五十音图"
+    },
+    "com.henzanapp.miaomiaozhe": {
+      "hash": -662871885,
+      "app_name": "喵喵折"
+    },
+    "com.hexin.plat.android": {
+      "hash": -1556709909,
+      "app_name": "同花顺"
+    },
+    "com.hipu.yidian": {
+      "hash": -76821059,
+      "app_name": "一点资讯"
+    },
+    "com.hose.ekuaibao": {
+      "hash": -524659007,
+      "app_name": "易快报"
+    },
+    "com.hpbr.bosszhipin": {
+      "hash": -2069018544,
+      "app_name": "BOSS直聘"
+    },
+    "com.huawei.appmarket": {
+      "hash": -1637701853,
+      "app_name": "华为应用市场"
+    },
+    "com.hunantv.imgo.activity": {
+      "hash": 201325446,
+      "app_name": "芒果TV"
+    },
+    "com.hundsun.winner.pazq": {
+      "hash": 101952197,
+      "app_name": "平安证券"
+    },
+    "com.hungrypanda.waimai": {
+      "hash": -2028968188,
+      "app_name": "熊猫外卖"
+    },
+    "com.hupu.games": {
+      "hash": -1065232334,
+      "app_name": "虎扑"
+    },
+    "com.ganji.android": {
+      "hash": 555434215,
+      "app_name": "赶集直招"
+    },
+    "com.ganji.android.haoche_c": {
+      "hash": 1575109845,
+      "app_name": "瓜子二手车"
+    },
+    "com.gemini.cloud.client": {
+      "hash": -2061428528,
+      "app_name": "双子星云手机"
+    },
+    "com.GFriends.app": {
+      "hash": 300761806,
+      "app_name": "呱友"
+    },
+    "com.google.android.documentsui": {
+      "hash": 650999717,
+      "app_name": "文件"
+    },
+    "com.gotokeep.keep": {
+      "hash": 495814814,
+      "app_name": "Keep"
+    },
+    "com.greenpoint.android.mc10086.activity": {
+      "hash": 2091464343,
+      "app_name": "中国移动"
+    },
+    "com.guwendao.gwd": {
+      "hash": 1662102643,
+      "app_name": "古文岛"
+    },
+    "com.f1player": {
+      "hash": 2037736697,
+      "app_name": "51虚拟机"
+    },
+    "com.facetech.konking": {
+      "hash": -921040269,
+      "app_name": "轻音社"
+    },
+    "com.fanli.android.apps": {
+      "hash": 167193980,
+      "app_name": "返利"
+    },
+    "com.feicui.vdhelper": {
+      "hash": -2114933808,
+      "app_name": "翡翠视频"
+    },
+    "com.felink.foregroundpaper": {
+      "hash": -528715135,
+      "app_name": "全局透明壁纸"
+    },
+    "com.finace.market": {
+      "hash": 630814885,
+      "app_name": "有道财富"
+    },
+    "com.fq.wallpaper": {
+      "hash": 1062801388,
+      "app_name": "飞火动态壁纸"
+    },
+    "com.eastmoney.android.berlin": {
+      "hash": -358087111,
+      "app_name": "东方财富"
+    },
+    "com.ecitic.bank.mobile": {
+      "hash": 1076661718,
+      "app_name": "中信银行"
+    },
+    "com.eg.android.AlipayGphone": {
+      "hash": 2049668591,
+      "app_name": "支付宝"
+    },
+    "com.estrongs.android.pop": {
+      "hash": -133843480,
+      "app_name": "ES文件浏览器"
+    },
+    "com.excean.na": {
+      "hash": 884834226,
+      "app_name": "99手游加速器"
+    },
+    "com.dailyyoga.cn": {
+      "hash": 1091754941,
+      "app_name": "每日瑜伽"
+    },
+    "com.daimajia.gold": {
+      "hash": -1902185409,
+      "app_name": "稀土掘金"
+    },
+    "com.daliao.live.show": {
+      "hash": -811421306,
+      "app_name": "艾可直播"
+    },
+    "com.damonplay.damonps2.free": {
+      "hash": -530247198,
+      "app_name": "呆萌PS2模拟器"
+    },
+    "com.daqo.wallpaper": {
+      "hash": -91332804,
+      "app_name": "动漫壁纸大全"
+    },
+    "com.dmzj.manhua": {
+      "hash": -1206397310,
+      "app_name": "动漫之家"
+    },
+    "com.dongqiudi.news": {
+      "hash": -2002547408,
+      "app_name": "懂球帝"
+    },
+    "com.douban.frodo": {
+      "hash": -1670877294,
+      "app_name": "豆瓣"
+    },
+    "com.doulan.juxinding": {
+      "hash": 188162078,
+      "app_name": "抖蓝直播"
+    },
+    "com.doupin.show": {
+      "hash": 1519628819,
+      "app_name": "来电秀"
+    },
+    "com.dragon.read": {
+      "hash": 949069732,
+      "app_name": "番茄免费小说"
+    },
+    "com.duoduo.cailing": {
+      "hash": -1531462240,
+      "app_name": "彩铃多多"
+    },
+    "com.duokan.phone.remotecontroller": {
+      "hash": -189732215,
+      "app_name": "万能遥控"
+    },
+    "com.duolingo": {
+      "hash": -1255577144,
+      "app_name": "多邻国"
+    },
+    "com.duowan.kiwi": {
+      "hash": -895188853,
+      "app_name": "虎牙直播"
+    },
+    "com.duowan.mobile": {
+      "hash": -1220851267,
+      "app_name": "YY"
+    },
+    "com.caing.news": {
+      "hash": 2053958218,
+      "app_name": "财新"
+    },
+    "com.cainiao.wireless": {
+      "hash": 1073158053,
+      "app_name": "菜鸟裹裹"
+    },
+    "com.cctv.yangshipin.app.androidp": {
+      "hash": -1830100133,
+      "app_name": "央视频"
+    },
+    "com.cctv4g.cctvmobiletv": {
+      "hash": -2145732654,
+      "app_name": "CCTV手机电视"
+    },
+    "com.cfitcxwl.kdyutbu": {
+      "hash": 157540905,
+      "app_name": "囧次元"
+    },
+    "com.chinamobile.mcloud": {
+      "hash": 1868020298,
+      "app_name": "中国移动云盘"
+    },
+    "com.chinaso.so": {
+      "hash": -2116363580,
+      "app_name": "花漾搜索"
+    },
+    "com.cloudcomputer.cloudnetworkcafe": {
+      "hash": 1391684449,
+      "app_name": "电讯云网咖"
+    },
+    "com.cmbchina.ccd.pluto.cmbActivity": {
+      "hash": 1893781697,
+      "app_name": "掌上生活"
+    },
+    "com.cmcc.cmvideo": {
+      "hash": 1185278458,
+      "app_name": "咪咕视频"
+    },
+    "com.cmcc.hebao": {
+      "hash": 1516206044,
+      "app_name": "和包"
+    },
+    "com.cmri.universalapp": {
+      "hash": 1314748790,
+      "app_name": "和家亲"
+    },
+    "com.cnspeedtest.globalspeed": {
+      "hash": -1623425929,
+      "app_name": "全球网测"
+    },
+    "com.comic.cartoon36": {
+      "hash": -1869705199,
+      "app_name": "36漫画"
+    },
+    "com.coolapk.market": {
+      "hash": 847156324,
+      "app_name": "酷安"
+    },
+    "com.cssq.pandaplayet": {
+      "hash": 2016444138,
+      "app_name": "熊猫短剧"
+    },
+    "com.ct.client": {
+      "hash": 1983218619,
+      "app_name": "中国电信"
+    },
+    "com.cubic.autohome": {
+      "hash": -7542465,
+      "app_name": "汽车之家"
+    },
+    "com.cxzapp.yidianling": {
+      "hash": 953551389,
+      "app_name": "壹点灵"
+    },
+    "com.baidu.BaiduMap": {
+      "hash": 744792033,
+      "app_name": "百度地图"
+    },
+    "com.baidu.baijia": {
+      "hash": 1511326008,
+      "app_name": "百家号"
+    },
+    "com.baidu.baike": {
+      "hash": 325847140,
+      "app_name": "百度百科"
+    },
+    "com.baidu.browser.apps": {
+      "hash": -84768776,
+      "app_name": "百度浏览器"
+    },
+    "com.baidu.doctor.doctoranswer": {
+      "hash": 1890818956,
+      "app_name": "百度健康医生版"
+    },
+    "com.baidu.doctorbox": {
+      "hash": -1657078324,
+      "app_name": "有医笔记"
+    },
+    "com.baidu.haokan": {
+      "hash": 1683280386,
+      "app_name": "好看视频"
+    },
+    "com.baidu.homework": {
+      "hash": -2092209424,
+      "app_name": "作业帮"
+    },
+    "com.baidu.iknow": {
+      "hash": 332614644,
+      "app_name": "百度知道"
+    },
+    "com.baidu.netdisk": {
+      "hash": 1791072826,
+      "app_name": "百度网盘"
+    },
+    "com.baidu.searchbox": {
+      "hash": -796004189,
+      "app_name": "百度"
+    },
+    "com.baidu.searchbox.senior": {
+      "hash": 1889695195,
+      "app_name": "百度关怀版"
+    },
+    "com.baidu.searchbox.tomas": {
+      "hash": 1309104121,
+      "app_name": "百度大字版"
+    },
+    "com.baidu.student": {
+      "hash": -1930986565,
+      "app_name": "不挂科"
+    },
+    "com.baidu.tieba": {
+      "hash": 342704719,
+      "app_name": "百度贴吧"
+    },
+    "com.baidu.wenku": {
+      "hash": 345365066,
+      "app_name": "百度文库"
+    },
+    "com.baidu.xin.aiqicha": {
+      "hash": 651433099,
+      "app_name": "爱企查"
+    },
+    "com.baidu.ybb": {
+      "hash": 1600359417,
+      "app_name": "游帮帮加速器"
+    },
+    "com.banban.kuxiu": {
+      "hash": -1161217159,
+      "app_name": "酷秀LIVE"
+    },
+    "com.bestv.app": {
+      "hash": 725735704,
+      "app_name": "百视TV"
+    },
+    "com.boc.bocgmsma": {
+      "hash": 960022320,
+      "app_name": "对接会助手"
+    },
+    "com.boc.gmsa": {
+      "hash": -1877153607,
+      "app_name": "中银e企赢"
+    },
+    "com.booking": {
+      "hash": 1337821420,
+      "app_name": "Booking.com缤客"
+    },
+    "com.btzx0313.app": {
+      "hash": -405478795,
+      "app_name": "必拓资讯"
+    },
+    "com.abk.fitter": {
+      "hash": -1109425407,
+      "app_name": "安帮客师傅端"
+    },
+    "com.achievo.vipshop": {
+      "hash": 2123438483,
+      "app_name": "唯品会"
+    },
+    "com.alibaba.ailabs.tg": {
+      "hash": -1527971724,
+      "app_name": "天猫精灵"
+    },
+    "com.alibaba.aliexpresshd": {
+      "hash": -1930444755,
+      "app_name": "Aliexpress/全球速卖通"
+    },
+    "com.alibaba.android.rimet": {
+      "hash": 1335515207,
+      "app_name": "钉钉"
+    },
+    "com.alibaba.wireless": {
+      "hash": 644871869,
+      "app_name": "阿里巴巴"
+    },
+    "com.alicloud.databox": {
+      "hash": -1854575849,
+      "app_name": "阿里云盘"
+    },
+    "com.android.bankabc": {
+      "hash": -1731486278,
+      "app_name": "中国农业银行"
+    },
+    "com.android.thememanager": {
+      "hash": 1799462192,
+      "app_name": "MIUI 主题壁纸"
+    },
+    "com.android.vending": {
+      "hash": -1046965711,
+      "app_name": "Play商店"
+    },
+    "com.anjuke.android.app": {
+      "hash": -945730221,
+      "app_name": "安居客"
+    },
+    "com.apowersoft.letsview": {
+      "hash": 1836227312,
+      "app_name": "幕连"
+    },
+    "com.autonavi.minimap": {
+      "hash": 1254578009,
+      "app_name": "高德地图"
+    },
+    "cn.ccspeed": {
+      "hash": -54120092,
+      "app_name": "CC加速器"
+    },
+    "cn.cntv": {
+      "hash": 863298512,
+      "app_name": "央视影音"
+    },
+    "cn.com.ruijie.magicbox": {
+      "hash": 125486076,
+      "app_name": "无线魔盒"
+    },
+    "cn.etouch.ecalendar": {
+      "hash": -179660078,
+      "app_name": "中华万年历"
+    },
+    "cn.gogpay.dcb": {
+      "hash": 2078928257,
+      "app_name": "多彩宝"
+    },
+    "cn.gov.pbc.dcep": {
+      "hash": -322418038,
+      "app_name": "数字人民币"
+    },
+    "cn.jingzhuan.stock": {
+      "hash": 93910113,
+      "app_name": "经传多赢股票"
+    },
+    "cn.kuwo.player": {
+      "hash": 1429484426,
+      "app_name": "酷我音乐"
+    },
+    "cn.lingwoyun.cpc": {
+      "hash": 1032792361,
+      "app_name": "领沃云电脑"
+    },
+    "cn.missevan": {
+      "hash": -396646979,
+      "app_name": "猫耳FM"
+    },
+    "cn.neoclub.uki": {
+      "hash": 641733616,
+      "app_name": "Uki"
+    },
+    "cn.quicktv.androidpro": {
+      "hash": 891862624,
+      "app_name": "影视大全WTV"
+    },
+    "cn.soulapp.android": {
+      "hash": 1661249612,
+      "app_name": "Soul"
+    },
+    "cn.wps.yun": {
+      "hash": 886316827,
+      "app_name": "金山文档"
+    },
+    "cn.wywk.app": {
+      "hash": 1272214412,
+      "app_name": "网鱼"
+    },
+    "cn.xiaochuankeji.tieba": {
+      "hash": -2119218027,
+      "app_name": "最右"
+    },
+    "cn.xiaochuankeji.zuiyouLite": {
+      "hash": 232580377,
+      "app_name": "皮皮搞笑"
+    },
+    "bin.mt.plus": {
+      "hash": -532693094,
+      "app_name": "MT管理器"
+    },
+    "bubei.tingshu": {
+      "hash": 1596265335,
+      "app_name": "懒人听书"
+    },
+    "air.tv.douyu.android": {
+      "hash": -1667428321,
+      "app_name": "斗鱼"
+    },
+    "android.zhibo8": {
+      "hash": 132785423,
+      "app_name": "直播吧"
+    }
+  }
+}

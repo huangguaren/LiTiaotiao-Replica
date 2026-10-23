@@ -1,0 +1,35 @@
+# ===== build / toolchain (huge, not source) =====
+LiTiaotiao-Android/.buildtools/
+**/.gradle/
+**/build/
+**/local.properties
+*.apk
+*.aab
+LiTiaotiao-Android/dist/
+
+# ===== runtime data =====
+**/data/*.db
+**/data/*.log
+**/__pycache__/
+*.pyc
+
+# ===== IDE / OS =====
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ===== original large binaries / derived analysis (not our deliverable) =====
+LiTiaotiao-main/
+LiTiaotiao-Custom-Rules-main/
+analysis/
+.workbuddy/
+
+# ===== archives / stray artifacts =====
+*.zip
+androguard.db
+/*.db
+/*.log
+
+# ===== node =====
+node_modules/

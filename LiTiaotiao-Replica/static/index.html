@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>李跳跳 · 复刻版工作台</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23FF6A3D'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='sans-serif'%3E跳%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">跳</div>
+        <div class="brand-text">
+          <div class="brand-title">李跳跳</div>
+          <div class="brand-sub">复刻版工作台</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-item" data-route="#/home"><span class="ic">⌂</span> 首页</a>
+        <a class="nav-item" data-route="#/apps"><span class="ic">▤</span> 应用管理</a>
+        <a class="nav-item" data-route="#/import"><span class="ic">⇪</span> 规则导入</a>
+        <a class="nav-item" data-route="#/simulator"><span class="ic">▶</span> 模拟器</a>
+        <a class="nav-item" data-route="#/global"><span class="ic">✳</span> 全局规则</a>
+        <a class="nav-item" data-route="#/settings"><span class="ic">⚙</span> 设置</a>
+        <a class="nav-item" data-route="#/about"><span class="ic">ⓘ</span> 关于</a>
+      </nav>
+      <div class="sidebar-foot">v2.2-replica · 单机离线</div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <button class="hamburger" id="hamburger" aria-label="菜单">☰</button>
+        <h1 class="page-title" id="pageTitle">首页</h1>
+        <div class="topbar-right" id="topbarRight"></div>
+      </header>
+      <section class="view" id="view"><div class="loading">加载中…</div></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- generic modal -->
+  <div class="modal-mask" id="modalMask" hidden>
+    <div class="modal" id="modal">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-foot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
