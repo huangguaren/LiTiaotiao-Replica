@@ -95,6 +95,30 @@ class TestEngine(unittest.TestCase):
         )
         self.assertEqual(res.hits[0]["actions"][0]["kind"], "node")
 
+    def test_unite_gate_waits_for_intermediate_state(self):
+        rules = {
+            "popup_rules": [
+                {"id": "倒计时", "action": "倒计时", "times": 0},
+                {"id": "关闭", "action": "关闭", "times": 1},
+            ],
+            "params": {"unite_popup_rules": True},
+        }
+        # 中间态未出现：不点击
+        only_close = node(text="关闭", resource_id="close", clickable=True)
+        self.assertEqual(E.evaluate_screen(rules, only_close).total_clicks, 0)
+        # 中间态出现：允许点击
+        with_gate = node(text="x", children=[
+            node(text="倒计时 5 秒", resource_id="cd"),
+            node(text="关闭", resource_id="close", clickable=True),
+        ])
+        self.assertEqual(E.evaluate_screen(rules, with_gate).total_clicks, 1)
+
+    def test_filter_young_skips_young_popup(self):
+        screen = node(text="青少年模式", resource_id="young")
+        rules = {"popup_rules": [{"id": "青少年模式", "action": "我知道了"}], "params": {}}
+        self.assertEqual(len(E.evaluate_screen(rules, screen, opts={"filter_young": True}).hits), 0)
+        self.assertEqual(len(E.evaluate_screen(rules, screen, opts={"filter_young": False}).hits), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -253,31 +253,37 @@ public class Repository {
         ImportResult res = new ImportResult();
         try {
             List<RuleJson.RuleRecord> records = RuleJson.parseAllRules(text);
-            for (RuleJson.RuleRecord rec : records) {
-                int h = rec.hash;
-                ensureApp(h, "import");
-                SQLiteDatabase d = db.getWritableDatabase();
-                d.delete(DbHelper.T_RULES, "app_hash=?", new String[]{String.valueOf(h)});
-                d.delete(DbHelper.T_PARAMS, "app_hash=?", new String[]{String.valueOf(h)});
-                RuleSet rs = RuleSet.fromJson(h, rec.obj);
-                int order = 0;
-                for (String kw : rs.keywords) {
-                    insertRule(d, h, "keyword", kw, kw, 1, order++);
+            SQLiteDatabase d = db.getWritableDatabase();
+            d.beginTransaction();
+            try {
+                for (RuleJson.RuleRecord rec : records) {
+                    int h = rec.hash;
+                    ensureApp(h, "import");
+                    d.delete(DbHelper.T_RULES, "app_hash=?", new String[]{String.valueOf(h)});
+                    d.delete(DbHelper.T_PARAMS, "app_hash=?", new String[]{String.valueOf(h)});
+                    RuleSet rs = RuleSet.fromJson(h, rec.obj);
+                    int order = 0;
+                    for (String kw : rs.keywords) {
+                        insertRule(d, h, "keyword", kw, kw, 1, order++);
+                    }
+                    for (String kw : rs.keywordsAppend) {
+                        insertRule(d, h, "keyword_append", kw, kw, 1, order++);
+                    }
+                    for (hello.litiaotiao.app.engine.Rule r : rs.popupRules) {
+                        insertRule(d, h, "popup", r.id, r.action, r.times, order++);
+                    }
+                    for (java.util.Map.Entry<String, Object> e : rs.params.entrySet()) {
+                        ContentValues v = new ContentValues();
+                        v.put("app_hash", h); v.put("key", e.getKey());
+                        v.put("value", String.valueOf(e.getValue()));
+                        d.insertWithOnConflict(DbHelper.T_PARAMS, null, v, SQLiteDatabase.CONFLICT_REPLACE);
+                    }
+                    res.importedApps++;
+                    res.importedRules += rs.keywords.size() + rs.keywordsAppend.size() + rs.popupRules.size();
                 }
-                for (String kw : rs.keywordsAppend) {
-                    insertRule(d, h, "keyword_append", kw, kw, 1, order++);
-                }
-                for (hello.litiaotiao.app.engine.Rule r : rs.popupRules) {
-                    insertRule(d, h, "popup", r.id, r.action, r.times, order++);
-                }
-                for (java.util.Map.Entry<String, Object> e : rs.params.entrySet()) {
-                    ContentValues v = new ContentValues();
-                    v.put("app_hash", h); v.put("key", e.getKey());
-                    v.put("value", String.valueOf(e.getValue()));
-                    d.insertWithOnConflict(DbHelper.T_PARAMS, null, v, SQLiteDatabase.CONFLICT_REPLACE);
-                }
-                res.importedApps++;
-                res.importedRules += rs.keywords.size() + rs.keywordsAppend.size() + rs.popupRules.size();
+                d.setTransactionSuccessful();
+            } finally {
+                d.endTransaction();
             }
         } catch (Exception e) {
             res.errors.add(e.getMessage() == null ? e.toString() : e.getMessage());
@@ -295,15 +301,17 @@ public class Repository {
     public String exportApps(String scope) {
         SQLiteDatabase d = db.getReadableDatabase();
         String sql;
+        String[] sqlArgs = null;
         if (scope != null && scope.startsWith("single:")) {
-            sql = "SELECT hash FROM apps WHERE hash=" + scope.substring(7);
+            sql = "SELECT hash FROM apps WHERE hash=?";
+            sqlArgs = new String[]{scope.substring(7)};
         } else if ("enabled".equals(scope)) {
             sql = "SELECT hash FROM apps WHERE enabled=1";
         } else {
             sql = "SELECT hash FROM apps";
         }
         List<RuleJson.RuleRecord> recs = new ArrayList<>();
-        try (Cursor c = d.rawQuery(sql, null)) {
+        try (Cursor c = d.rawQuery(sql, sqlArgs)) {
             while (c.moveToNext()) {
                 int h = c.getInt(0);
                 JSONObject obj = buildRuleObject(h);

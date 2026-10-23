@@ -49,7 +49,7 @@ class Config:
         ),
     )
     DEBUG = _env_bool("LTT_DEBUG", False)
-    VERSION = "2.2-replica"
+    VERSION = "2.2.2"
 
 
 config = Config()

@@ -32,12 +32,18 @@ public final class RuleEngine {
     public static List<PlannedAction> evaluate(RuleSet appRules, RuleSet globalRules, NodeSnapshot root,
                                                boolean filterInvisible, String packageName,
                                                List<String> mpHosts, boolean mpAutoBack) {
+        return evaluate(appRules, globalRules, root, filterInvisible, packageName, mpHosts, mpAutoBack, false);
+    }
+
+    public static List<PlannedAction> evaluate(RuleSet appRules, RuleSet globalRules, NodeSnapshot root,
+                                               boolean filterInvisible, String packageName,
+                                               List<String> mpHosts, boolean mpAutoBack, boolean filterYoung) {
         List<PlannedAction> out = new ArrayList<>();
         if (root == null) return out;
         Set<String> seenNodes = new HashSet<>();
         Set<String> seenRules = new HashSet<>();
-        if (globalRules != null) run(globalRules, root, filterInvisible, out, seenNodes, seenRules, true);
-        if (appRules != null) run(appRules, root, filterInvisible, out, seenNodes, seenRules, false);
+        if (globalRules != null) run(globalRules, root, filterInvisible, out, seenNodes, seenRules, true, filterYoung);
+        if (appRules != null) run(appRules, root, filterInvisible, out, seenNodes, seenRules, false, filterYoung);
 
         // 小程序开屏广告兜底：命中宿主包但没找到可点击跳过按钮时自动返回。
         if (out.isEmpty() && packageName != null && mpHosts != null
@@ -50,7 +56,7 @@ public final class RuleEngine {
 
     private static void run(RuleSet rs, NodeSnapshot root, boolean filterInvisible,
                             List<PlannedAction> out, Set<String> seenNodes, Set<String> seenRules,
-                            boolean global) {
+                            boolean global, boolean filterYoung) {
         boolean force = rs.getParamBool("click_way_popup");
         boolean reverse = rs.getParamBool("reverse_traversal");
         int searchTimes = Math.max(rs.getParamInt("search_times_popup", 1), 1);
@@ -66,9 +72,27 @@ public final class RuleEngine {
             out.add(new PlannedAction(ActionType.NODE, hit, null, "开屏关键词命中: " + kw + suffix));
         }
 
+        // 联合规则：存在 times=0 的中间态规则但当前未命中时，等待、不执行点击规则。
+        boolean unite = rs.getParamBool("unite_popup_rules");
+        if (unite) {
+            boolean hasGate = false;
+            boolean gateMatched = false;
+            for (Rule g : rs.popupRules) {
+                if (g.times == 0 && g.id != null && !g.id.isEmpty()) {
+                    hasGate = true;
+                    if (findFirst(root, g.id, reverse, filterInvisible) != null) {
+                        gateMatched = true;
+                        break;
+                    }
+                }
+            }
+            if (hasGate && !gateMatched) return;
+        }
+
         for (int pass = 0; pass < searchTimes; pass++) {
             for (Rule r : rs.popupRules) {
                 if (r.id == null || r.id.isEmpty()) continue;
+                if (filterYoung && r.id.contains("青少年")) continue;
                 String key = r.id + "|" + r.action;
                 if (seenRules.contains(key)) continue;
                 NodeSnapshot trigger = findFirst(root, r.id, reverse, filterInvisible);

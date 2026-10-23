@@ -80,10 +80,10 @@ public class GlobalRulesActivity extends AppCompatActivity {
             for (String line : editPopup.getText().toString().split("\n")) {
                 String s = line.trim();
                 if (s.isEmpty()) continue;
-                String[] parts = s.split("\\|");
-                String id = parts[0].trim();
+                int sep = s.indexOf('|');
+                String id = (sep >= 0 ? s.substring(0, sep) : s).trim();
                 if (id.isEmpty()) continue;
-                String action = parts.length > 1 ? parts[1].trim() : id;
+                String action = sep >= 0 ? s.substring(sep + 1).trim() : id;
                 JSONObject r = new JSONObject();
                 r.put("id", id);
                 r.put("action", action.isEmpty() ? id : action);

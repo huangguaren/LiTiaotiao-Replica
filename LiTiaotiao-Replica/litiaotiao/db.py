@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS skip_logs (
     trigger_text  TEXT,
     action_kind   TEXT,
     action_target TEXT,
+    source        TEXT NOT NULL DEFAULT 'app',
     created_at    TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_logs_time ON skip_logs(created_at);
@@ -68,9 +69,14 @@ CREATE INDEX IF NOT EXISTS idx_logs_time ON skip_logs(created_at);
 
 
 def get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(config.DB_PATH)
+    conn = sqlite3.connect(config.DB_PATH, timeout=10)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
+    conn.execute("PRAGMA busy_timeout = 10000")
+    try:
+        conn.execute("PRAGMA journal_mode = WAL")
+    except sqlite3.DatabaseError:
+        pass
     return conn
 
 
@@ -78,6 +84,12 @@ def init_db() -> None:
     conn = get_conn()
     try:
         conn.executescript(SCHEMA)
+        # 轻量迁移：为旧库补 skip_logs.source（区分真实/模拟）。
+        cols = {row[1] for row in conn.execute("PRAGMA table_info(skip_logs)")}
+        if "source" not in cols:
+            conn.execute(
+                "ALTER TABLE skip_logs ADD COLUMN source TEXT NOT NULL DEFAULT 'app'"
+            )
         conn.commit()
     finally:
         conn.close()

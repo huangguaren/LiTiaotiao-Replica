@@ -67,6 +67,31 @@ class TestRulesIO(unittest.TestCase):
         )
         self.assertEqual(out, "[]")
 
+    def test_extract_rule_object_from_markdown(self):
+        md = """
+## 基础规则
+
+快速复制:
+```
+{"popup_rules":
+    [
+        {"id":"a","action":"b"},
+        /* 注释 */
+    ],
+    "click_way_popup": 1
+}
+```
+"""
+        obj = R.extract_rule_object(md)
+        self.assertIsNotNone(obj)
+        self.assertEqual(obj["popup_rules"][0]["id"], "a")
+        self.assertEqual(obj["click_way_popup"], 1)
+
+    def test_extract_keeps_double_slash_in_text(self):
+        md = '```\n{"popup_rules":[{"id":"https://x","action":"https://x"}]}\n```'
+        obj = R.extract_rule_object(md)
+        self.assertEqual(obj["popup_rules"][0]["id"], "https://x")
+
 
 if __name__ == "__main__":
     unittest.main()

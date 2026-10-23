@@ -29,7 +29,10 @@ import hello.litiaotiao.app.util.Prefs;
 public class LttAccessibilityService extends AccessibilityService {
     private static final long THROTTLE_MS = 120;      // 事件节流
     private static final long DEDUPE_MS = 1500;       // 同一控件防重复点击窗口
+    private static final long MAX_SIG_ENTRIES = 200;  // 去重签名表上限
 
+    private final android.os.Handler handler =
+            new android.os.Handler(android.os.Looper.getMainLooper());
     private Repository repo;
     private long lastProcessedAt = 0L;
     private final Map<String, Long> lastClickSig = new HashMap<>();
@@ -82,36 +85,57 @@ public class LttAccessibilityService extends AccessibilityService {
             if (snapshot == null) return;
 
             boolean filterInvisible = Prefs.getBool(this, Prefs.K_FILTER_INVISIBLE, true);
+            boolean filterYoung = Prefs.getBool(this, Prefs.K_FILTER_YOUNG, true);
             java.util.List<String> mpHosts = parseHosts(Prefs.getString(this, Prefs.K_MP_HOSTS, ""));
             boolean mpAutoBack = Prefs.getBool(this, Prefs.K_MP_AUTO_BACK, false);
 
             List<PlannedAction> actions = RuleEngine.evaluate(
                     hasApp ? appRules : null, globalRules, snapshot, filterInvisible,
-                    pkg, mpHosts, mpAutoBack);
-            if (actions.isEmpty()) return;
+                    pkg, mpHosts, mpAutoBack, filterYoung);
+            if (actions.isEmpty()) {
+                snapshot.recycleTree();
+                return;
+            }
 
-            int performed = 0;
-            for (PlannedAction a : actions) {
-                String sig = signature(pkg, a);
-                Long last = lastClickSig.get(sig);
-                if (last != null && now - last < DEDUPE_MS) continue;
-                lastClickSig.put(sig, now);
+            final NodeSnapshot snap = snapshot;
+            final List<PlannedAction> acts = actions;
+            final long nowMs = now;
+            final int delayMs = appRules == null ? 0
+                    : Math.max(appRules.getParamInt("delay_popup", 0), appRules.getParamInt("delay", 0));
 
-                boolean ok;
+            Runnable task = () -> {
                 try {
-                    ok = perform(a);
-                } catch (Exception ignore) {
-                    ok = false;
+                    int performed = 0;
+                    for (PlannedAction a : acts) {
+                        String sig = signature(pkg, a);
+                        Long last = lastClickSig.get(sig);
+                        if (last != null && nowMs - last < DEDUPE_MS) continue;
+                        lastClickSig.put(sig, nowMs);
+
+                        boolean ok;
+                        try {
+                            ok = perform(a);
+                        } catch (Exception ignore) {
+                            ok = false;
+                        }
+                        if (ok) {
+                            performed++;
+                            repo.logSkip(hash, pkg, triggerOf(a), a.type.name(), targetOf(a));
+                        }
+                    }
+                    if (performed > 0) {
+                        Prefs.addSkip(this, performed);
+                    }
+                    if (lastClickSig.size() > MAX_SIG_ENTRIES) lastClickSig.clear();
+                } finally {
+                    snap.recycleTree();
                 }
-                if (ok) {
-                    performed++;
-                    repo.logSkip(hash, pkg, triggerOf(a), a.type.name(), targetOf(a));
-                }
+            };
+            if (delayMs > 0) {
+                handler.postDelayed(task, delayMs);
+            } else {
+                task.run();
             }
-            if (performed > 0) {
-                Prefs.addSkip(this, performed);
-            }
-            if (lastClickSig.size() > 200) lastClickSig.clear();
         } catch (Exception ignore) {
             // 单个应用处理失败不应影响服务本身
         }

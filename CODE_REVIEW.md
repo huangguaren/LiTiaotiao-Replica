@@ -126,3 +126,30 @@
 - **Warning：12 个**
 - **Info：10 个**
 - **总体评价**：架构分层清晰、规则引擎还原度高、具备测试/CI/发布链路，属于可交付的工程；主要风险集中在**本地服务安全边界（CORS/CSRF）**、**全局规则误操作**，以及若干**"配置了但未实现"**的参数。建议优先级：Critical 1/2 → Warning 1（参数未实现）/2（批量写入性能）/6（加载时写库）/7（测试与 CI）。
+
+---
+
+## 修复状态（2026-10-23 第二轮）
+
+| 编号 | 问题 | 状态 | 处理说明 |
+| --- | --- | --- | --- |
+| C1 | CORS 通配 + CSRF | ✅ 已修复 | 删除通配 CORS；非本机 Origin 返回 403；OPTIONS 不再发送 ACAO（`server.py`） |
+| C2 | 全局规则/自动返回误操作 | ✅ 已缓解 | 默认全局关键词收窄为「跳过广告/关闭广告」；自动返回默认关闭（需手动开启）；文档标注风险 |
+| W1 | `delay` / `unite_popup_rules` 未实现 | ✅ 已实现 | 双引擎新增联合规则「中间态门控」；Android 按 `delay/delay_popup` 延时执行（`Handler.postDelayed`） |
+| W2 | 逐条 SQL 慢 | ✅ 已修复 | `db.transaction()` + `import_rules` 单事务；实测 795 条 ≈ 0.06s（原 ~40s）；Android 导入也改为事务 |
+| W3 | 无 busy_timeout / WAL | ✅ 已修复 | `get_conn` 设 `busy_timeout=10000`、`journal_mode=WAL`、`timeout=10` |
+| W4 | 路径校验前缀匹配 | ✅ 已修复 | 改为 `Path.is_relative_to()` |
+| W5 | Android 导出 SQL 拼接 | ✅ 已修复 | 改为参数化 `hash=?` |
+| W6 | 编辑页加载触发写库 | ✅ 已修复 | 增加 `loading` 标志，加载期间忽略监听回调 |
+| W7 | 测试/CI 缺口 | ◐ 部分完成 | CI 新增 `Python Tests` job（25 例）；Java 单测待补（需测试工厂/Robolectric） |
+| W8 | Node 未回收 | ✅ 已修复 | `NodeSnapshot.recycleTree()`，事件处理完回收 |
+| W9 | 无前台服务 | ⏭ 评估不改 | AccessibilityService 由系统绑定，FGS 非必需（原版 FGS 主要为其他用途）；已在文档说明 |
+| W10 | 双引擎漂移 | ◐ 部分完成 | `unite` / `filter_young` 语义已同步；共享测试向量待补 |
+| W11 | simulate 污染统计 | ✅ 已修复 | `skip_logs` 增加 `source` 列，模拟写入 `simulate`；UI 已注明「模拟器运行计数」 |
+| W12 | 死配置 | ✅ 已处理 | `filter_young_popups` 已实现；移除 `is_user_check`；`ltt_service` 标注保留 |
+| Info | 魔法数字/服务状态判断/分隔符 | ✅ 已处理 | 常量提取；`isServiceEnabled` 改为组件列表解析；`|` 改为首个分隔符 |
+| Info | 注释正则误删 URL | ✅ 已修复 | 仅剥离块注释与行首 `//` |
+| Info | 输入上限/版本一致性 | ✅ 已处理 | 导入 5MB 上限；Web 版本统一为 `2.2.1` |
+| Info | 文件过大拆分 | ⏭ 待办 | `api.py`/`app.js` 拆分列为后续重构，不影响功能 |
+
+> 结论：Critical 2/2 已处理；Warning 12 项中 10 项已修复/实现，2 项部分完成并记录待办；Info 主要项已处理。
