@@ -47,14 +47,22 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Pragma", "no-cache")
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header(
-            "Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"
-        )
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        # 不发送任何 Access-Control-Allow-* 头：本工具为同源本地服务，
+        # 跨域请求一律不放行（防 CSRF）。
         self.end_headers()
         if self.command != "HEAD":
             self.wfile.write(body)
+
+    def _origin_allowed(self) -> bool:
+        """仅允许本机来源；携带外部 Origin 的请求视为跨域并拒绝。"""
+        origin = self.headers.get("Origin")
+        if not origin:
+            return True  # 非浏览器请求（curl / 同源 GET 可能不带 Origin）
+        try:
+            host = urlparse(origin).hostname
+        except Exception:
+            return False
+        return host in ("127.0.0.1", "localhost", "::1")
 
     def _send_json(self, status: int, payload: dict):
         self._send(status, json.dumps(payload, ensure_ascii=False).encode("utf-8"),
@@ -90,6 +98,9 @@ class Handler(BaseHTTPRequestHandler):
 
         # API
         if path.startswith("/api/"):
+            if not self._origin_allowed():
+                self._send_json(403, {"error": "cross-origin request blocked"})
+                return
             self._handle_api(method, path[len("/api/"):], query, body)
             return
 
