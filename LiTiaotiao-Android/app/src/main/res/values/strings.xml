@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">李跳跳</string>
+    <string name="app_version_name">2.2-replica</string>
+
+    <!-- 无障碍服务描述（还原自原版 APK 字符串资源） -->
+    <string name="accessibility_service_description">我的作用：旨在帮助用户跳过那些被工信部提名的，影响用户体验的开屏广告和弹窗。\n--------------\n用户须知：李跳跳是一个不联网的单机应用，不会也没办法泄露你的任何隐私。</string>
+
+    <!-- UI 文案 -->
+    <string name="home_title">李跳跳</string>
+    <string name="home_sub">跳过开屏广告与弹窗</string>
+    <string name="service_on">服务已开启</string>
+    <string name="service_off">服务已关闭</string>
+    <string name="service_hint">开启后请在系统设置中启用「李跳跳」无障碍服务</string>
+    <string name="skipped_prefix">已为你跳过</string>
+    <string name="skipped_suffix">次</string>
+    <string name="menu_apps">应用管理</string>
+    <string name="menu_import">导入规则</string>
+    <string name="menu_global">全局规则 / 小程序</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_export">导出规则</string>
+
+    <!-- 列表 / 详情 -->
+    <string name="search_hint">搜索应用名 / 包名 / hash</string>
+    <string name="filter_all">全部</string>
+    <string name="filter_enabled">已启用</string>
+    <string name="filter_disabled">已禁用</string>
+    <string name="filter_whitelisted">白名单</string>
+    <string name="label_enabled">启用</string>
+    <string name="label_whitelisted">白名单</string>
+    <string name="section_popup">弹窗规则 popup_rules</string>
+    <string name="section_keyword">开屏关键词 keywords</string>
+    <string name="section_keyword_append">追加关键词 keywords_append</string>
+    <string name="empty_rules">暂无规则</string>
+    <string name="add_rule">新增规则</string>
+    <string name="edit_rule">编辑规则</string>
+
+    <!-- 参数名（键名还原自 APK 字符串资源） -->
+    <string name="key_keywords">keywords</string>
+    <string name="key_keywords_append">keywords_append</string>
+    <string name="key_popup_rules">popup_rules</string>
+    <string name="key_click_way_popup">click_way_popup</string>
+    <string name="key_search_times_popup">search_times_popup</string>
+    <string name="key_delay">delay</string>
+    <string name="key_delay_popup">delay_popup</string>
+    <string name="key_unite_popup_rules">unite_popup_rules</string>
+    <string name="key_reverse_traversal">reverse_traversal</string>
+    <string name="key_ltt_service">ltt_service</string>
+    <string name="key_is_main_switch_on">is_main_switch_on</string>
+    <string name="key_hide_toast">hide_toast</string>
+    <string name="key_show_all_apps">show_all_apps</string>
+    <string name="key_whitelist_all_apps">whitelist_all_apps</string>
+    <string name="key_filter_invisible_nodes">filter_invisible_nodes</string>
+    <string name="key_filter_young_popups">filter_young_popups</string>
+
+    <!-- 参数显示名 -->
+    <string name="param_force_click">强制点击</string>
+    <string name="param_unite">联合规则</string>
+    <string name="param_reverse">反向遍历</string>
+    <string name="param_ltt">需 LTT 服务</string>
+    <string name="param_search_times">搜索次数</string>
+    <string name="param_delay">开屏延迟(ms)</string>
+    <string name="param_delay_popup">弹窗延迟(ms)</string>
+
+    <!-- 导入 -->
+    <string name="import_hint">粘贴 AllRules.json / BasicRules.json / ExtendedRules.json 内容…</string>
+    <string name="import_action">解析并导入</string>
+    <string name="import_sample">加载示例</string>
+    <string name="import_result">导入结果</string>
+
+    <!-- 关于 -->
+    <string name="about_desc">李跳跳高保真复刻版。基于原版 APK 提取的资源、字符串与规则数据结构还原规则引擎与管理界面。</string>
+</resources>

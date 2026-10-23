@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全局规则（对所有应用 / 小程序生效）"
+                android:textStyle="bold"
+                android:textColor="@color/text" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="小程序开屏广告会以「小程序宿主」的包名出现，按应用匹配的规则查不到。全局规则对所有包生效，专门拦截这类广告。"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="启用全局规则" />
+                <Switch
+                    android:id="@+id/switchGlobalEnabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="全局跳过关键词（每行一个，模糊包含）"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+            <EditText
+                android:id="@+id/editGlobalKeywords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:gravity="top|start"
+                android:inputType="textMultiLine|textNoSuggestions" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="全局弹窗规则（每行：触发id | 点击目标）"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+            <EditText
+                android:id="@+id/editGlobalPopup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:gravity="top|start"
+                android:hint="关闭广告 | 关闭"
+                android:inputType="textMultiLine|textNoSuggestions" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="小程序宿主（自动返回兜底）"
+                android:textStyle="bold"
+                android:textColor="@color/text" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="当下列包在前台、且找不到可点击的「跳过」按钮时，若开启「自动返回」，会触发系统返回键关闭小程序广告。"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="小程序宿主包名（每行一个，如 com.tencent.mm）"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+            <EditText
+                android:id="@+id/editMpHosts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:gravity="top|start"
+                android:hint="com.tencent.mm"
+                android:inputType="textMultiLine|textNoSuggestions" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="找不到跳过按钮时自动返回" />
+                <Switch
+                    android:id="@+id/switchMpAutoBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSaveGlobal"
+                style="@style/BtnPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="0dp"
+                android:text="保存全局规则" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

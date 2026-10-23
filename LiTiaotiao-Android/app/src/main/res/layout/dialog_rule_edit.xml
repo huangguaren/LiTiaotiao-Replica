@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="类型"
+        android:textColor="@color/muted"
+        android:textSize="12sp" />
+    <Spinner
+        android:id="@+id/spinnerType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="匹配 id（触发条件，支持 +开头 / -结尾 / =完全 / &amp;且）"
+        android:textColor="@color/muted"
+        android:textSize="12sp" />
+    <EditText
+        android:id="@+id/editMatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="action（点击目标：文本/id、GLOBAL_ACTION_BACK、坐标 x1,y1,x2,y2）"
+        android:textColor="@color/muted"
+        android:textSize="12sp" />
+    <EditText
+        android:id="@+id/editAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击次数 times（0=仅检测）"
+        android:textColor="@color/muted"
+        android:textSize="12sp" />
+    <EditText
+        android:id="@+id/editTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="1" />
+</LinearLayout>

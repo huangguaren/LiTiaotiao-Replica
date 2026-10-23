@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/ruleTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="弹窗"
+        android:textSize="11sp"
+        android:textColor="@color/muted"
+        android:background="@color/bg"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:id="@+id/ruleMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/text"
+            android:singleLine="true"
+            android:ellipsize="end" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="→"
+            android:textColor="@color/muted"
+            android:layout_marginHorizontal="6dp" />
+        <TextView
+            android:id="@+id/ruleAction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/brand"
+            android:singleLine="true"
+            android:ellipsize="end" />
+        <TextView
+            android:id="@+id/ruleTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="@color/muted"
+            android:layout_marginStart="6dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEditRule"
+        style="@style/BtnGhost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="编辑"
+        android:focusable="false"
+        android:clickable="false" />
+    <Button
+        android:id="@+id/btnDeleteRule"
+        style="@style/BtnPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="删除"
+        android:focusable="false"
+        android:clickable="false" />
+</LinearLayout>

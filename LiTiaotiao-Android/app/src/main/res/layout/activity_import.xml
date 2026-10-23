@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="粘贴李跳跳官方 AllRules.json / BasicRules.json / ExtendedRules.json 格式规则进行导入；相同 hash 的应用规则会被覆盖更新。"
+        android:textColor="@color/muted"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/editRules"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_card"
+        android:gravity="top|start"
+        android:hint="@string/import_hint"
+        android:padding="12dp"
+        android:textSize="12sp"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:typeface="monospace" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/btnDoImport"
+            style="@style/BtnPrimary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/import_action" />
+        <Button
+            android:id="@+id/btnLoadSample"
+            style="@style/BtnGhost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/import_sample" />
+        <Button
+            android:id="@+id/btnExport"
+            style="@style/BtnGhost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/menu_export" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/import_result"
+        android:textStyle="bold"
+        android:textColor="@color/muted"
+        android:layout_marginTop="14dp" />
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="尚未导入"
+        android:textColor="@color/text"
+        android:textSize="13sp" />
+</LinearLayout>
