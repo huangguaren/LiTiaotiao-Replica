@@ -182,6 +182,7 @@ public class LttAccessibilityService extends AccessibilityService {
                     }
                     if (performed > 0) {
                         Prefs.addSkip(this, performed);
+                        SkipTip.show(this);   // 原版同款「已为你跳过 N 次」悬浮提示
                     }
                     if (lastClickSig.size() > MAX_SIG_ENTRIES) lastClickSig.clear();
                 } finally {
