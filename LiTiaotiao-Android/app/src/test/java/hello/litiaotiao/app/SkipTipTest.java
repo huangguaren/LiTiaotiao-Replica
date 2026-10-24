@@ -8,16 +8,16 @@ import static org.junit.Assert.assertEquals;
 public class SkipTipTest {
     @Test
     public void formatTipZero() {
-        assertEquals("已为你跳过 0 次", SkipTip.formatTip(0));
+        assertEquals("小兔子乖乖", SkipTip.formatTip(0));
     }
 
     @Test
     public void formatTipSingle() {
-        assertEquals("已为你跳过 1 次", SkipTip.formatTip(1));
+        assertEquals("小兔子乖乖", SkipTip.formatTip(1));
     }
 
     @Test
     public void formatTipLarge() {
-        assertEquals("已为你跳过 10086 次", SkipTip.formatTip(10086));
+        assertEquals("小兔子乖乖", SkipTip.formatTip(10086));
     }
 }

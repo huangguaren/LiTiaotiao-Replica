@@ -14,7 +14,7 @@ import android.widget.TextView;
 import hello.litiaotiao.app.util.Prefs;
 
 /**
- * 跳过提示悬浮窗（对齐原版「已为你跳过 N 次」）。
+ * 跳过提示悬浮窗（对齐原版李跳跳跳过广告后闪现的「小兔子乖乖」）。
  *
  * 为什么不用系统 Toast：
  * 本工程 targetSdk 34，在 Android 11+ 上后台服务弹出的 Toast 会被系统拦截不显示，
@@ -40,9 +40,9 @@ public final class SkipTip {
 
     private SkipTip() {}
 
-    /** 纯文本格式化，便于 JVM 单测覆盖。 */
+    /** 提示文案：对齐原版李跳跳跳过广告后闪现的悬浮提示文本。 */
     public static String formatTip(long count) {
-        return "已为你跳过 " + count + " 次";
+        return "小兔子乖乖";
     }
 
     /** 跳过后调用：在屏幕上闪现一条累计跳过次数提示。 */
