@@ -12,6 +12,15 @@
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
     );
   }
+
+  // 宽容解析：容忍手写 JSON 常见的尾随逗号（如 {..},] / {..},}）
+  function parseLoose(text) {
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      return JSON.parse(String(text).replace(/,(\s*[}\]])/g, "$1"));
+    }
+  }
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
 
@@ -406,7 +415,8 @@
     view().innerHTML = `
       <div class="card">
         <h3>无障碍节点树模拟器</h3>
-        <p class="note">粘贴一段 UI 无障碍节点树（JSON），选择某个已适配应用的规则，或自定义规则，点击「运行」即可看到李跳跳会如何匹配并自动点击。每次运行都会计入「已跳过」统计。</p>
+        <p class="note">用法：① 左侧编辑「屏幕节点树」；② 右侧选择应用规则，或填写自定义规则 JSON；③ 点「运行引擎」。<br>
+        节点字段：<b>text</b> / <b>resource_id</b> / <b>bounds</b> / <b>clickable</b> / <b>class</b> / <b>checked</b> / <b>children</b>。规则的 <b>id</b> 会匹配节点的 text 或 resource_id，<b>action</b> 是要点击的控件（也可为 <b>GLOBAL_ACTION_BACK</b> 或坐标）。每次运行会计入统计数据。</p>
         <div class="split">
           <div>
             <div class="section-title">屏幕节点树（screen）</div>
@@ -423,28 +433,48 @@
               <input type="checkbox" id="simUseGlobal" checked style="width:auto"> <span style="margin:0">应用全局规则（含小程序）</span></label>
             <div class="section-title">或自定义规则 JSON（rule object）</div>
             <textarea class="code-area" id="ruleJson" placeholder='{"popup_rules":[{"id":"检测到更新","action":"以后再说"}]}' style="min-height:120px"></textarea>
+            <div class="row" style="margin-top:8px">
+              <button class="btn ghost sm" id="sampRule">填入示例规则</button>
+            </div>
             <button class="btn" id="run" style="margin-top:10px;width:100%">▶ 运行引擎</button>
           </div>
         </div>
         <div class="section-title">运行结果</div>
-        <div class="result-box" id="result">（等待运行）</div>
+        <div class="result-box" id="result">（点击「运行引擎」开始；匹配结果会显示在这里）</div>
       </div>`;
     $("#sampScreen").addEventListener("click", () => ($("#screen").value = SAMPLE_SCREEN));
+    $("#sampRule").addEventListener("click", () => {
+      $("#ruleJson").value = '{"popup_rules":[{"id":"检测到更新","action":"以后再说"}]}';
+      toast("已填入示例规则，点击运行即可命中");
+    });
     $("#run").addEventListener("click", async () => {
+      const resultBox = $("#result");
       let screen;
-      try { screen = JSON.parse($("#screen").value); }
-      catch (e) { toast("屏幕 JSON 解析失败：" + e.message, true); return; }
+      try { screen = parseLoose($("#screen").value); }
+      catch (e) {
+        resultBox.textContent = "屏幕 JSON 解析失败：" + e.message + "\n（常见原因：多余逗号、缺少引号或括号）";
+        toast("屏幕 JSON 解析失败", true); return;
+      }
       const hash = $("#appSel").value || undefined;
       const pkg = ($("#simPackage").value || "").trim() || undefined;
       const useGlobal = $("#simUseGlobal").checked;
       let rules = undefined;
       const rj = $("#ruleJson").value.trim();
-      if (rj) { try { rules = JSON.parse(rj); } catch (e) { toast("规则 JSON 解析失败：" + e.message, true); return; } }
+      if (rj) {
+        try { rules = parseLoose(rj); }
+        catch (e) {
+          resultBox.textContent = "规则 JSON 解析失败：" + e.message;
+          toast("规则 JSON 解析失败", true); return;
+        }
+      }
       if (!hash && !rules && !useGlobal) { toast("请选择应用、填写自定义规则，或勾选全局规则", true); return; }
       try {
         const res = await API.simulate({ hash, rules, screen, package: pkg, use_global: useGlobal });
         renderSimResult(res);
-      } catch (x) { toast(x.message, true); }
+      } catch (x) {
+        resultBox.textContent = "运行失败：" + (x.message || x);
+        toast(x.message || String(x), true);
+      }
     });
   }
 
