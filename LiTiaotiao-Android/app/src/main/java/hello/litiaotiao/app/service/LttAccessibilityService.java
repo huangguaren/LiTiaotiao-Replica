@@ -31,6 +31,44 @@ public class LttAccessibilityService extends AccessibilityService {
     private static final long DEDUPE_MS = 1500;       // 同一控件防重复点击窗口
     private static final long MAX_SIG_ENTRIES = 200;  // 去重签名表上限
 
+    /** 系统界面 / 桌面 / 输入法等不参与广告跳过（避免误点系统 UI）。 */
+    private static final java.util.Set<String> IGNORED_PACKAGES = new java.util.HashSet<>(
+            java.util.Arrays.asList(
+                    "android",
+                    "com.android.systemui",
+                    "com.android.launcher",
+                    "com.android.launcher3",
+                    "com.android.settings",
+                    "com.android.packageinstaller",
+                    "com.android.permissioncontroller",
+                    "com.android.inputmethod",
+                    "com.android.internal.systemui",
+                    "com.google.android.inputmethod.latin"
+            ));
+    private static final java.util.List<String> IGNORED_PREFIXES = java.util.Arrays.asList(
+            "com.android.inputmethod.",
+            "com.google.android.inputmethod."
+    );
+
+    private boolean isIgnoredPackage(String pkg) {
+        if (pkg == null || pkg.isEmpty()) return true;
+        if (pkg.equals(getPackageName())) return true;      // 忽略自身界面
+        if (IGNORED_PACKAGES.contains(pkg)) return true;
+        for (String prefix : IGNORED_PREFIXES) {
+            if (pkg.startsWith(prefix)) return true;
+        }
+        return false;
+    }
+
+    private void recycleNode(AccessibilityNodeInfo node) {
+        if (node == null) return;
+        try {
+            node.recycle();
+        } catch (Exception ignore) {
+            // 新版本 API 上 recycle 已废弃，失败可忽略
+        }
+    }
+
     private final android.os.Handler handler =
             new android.os.Handler(android.os.Looper.getMainLooper());
     private Repository repo;
@@ -60,9 +98,19 @@ public class LttAccessibilityService extends AccessibilityService {
         if (now - lastProcessedAt < THROTTLE_MS) return;
         lastProcessedAt = now;
 
-        String pkg = resolvePackage(event);
-        if (pkg == null || pkg.isEmpty()) return;
-        if (pkg.equals(getPackageName())) return; // 忽略自身界面
+        // 先取当前窗口，再以「窗口所属应用」为准（事件来源可能是系统 UI / 输入法）
+        AccessibilityNodeInfo root = getRootInActiveWindow();
+        if (root == null) return;
+
+        String pkg = null;
+        if (root.getPackageName() != null) {
+            pkg = root.getPackageName().toString();
+        }
+        if (pkg == null || pkg.isEmpty()) {
+            pkg = resolvePackage(event);
+        }
+        if (isIgnoredPackage(pkg)) return;
+        final String pkgName = pkg;
 
         int hash = JavaHash.hash(pkg);
         try {
@@ -77,12 +125,16 @@ public class LttAccessibilityService extends AccessibilityService {
 
             boolean hasApp = appRules != null && appRules.hasAnyRule();
             boolean hasGlobal = globalRules != null && globalRules.hasAnyRule();
-            if (!hasApp && !hasGlobal) return;
+            if (!hasApp && !hasGlobal) {
+                recycleNode(root);
+                return;
+            }
 
-            AccessibilityNodeInfo root = getRootInActiveWindow();
-            if (root == null) return;
             NodeSnapshot snapshot = NodeSnapshot.build(root);
-            if (snapshot == null) return;
+            if (snapshot == null) {
+                recycleNode(root);
+                return;
+            }
 
             boolean filterInvisible = Prefs.getBool(this, Prefs.K_FILTER_INVISIBLE, true);
             boolean filterYoung = Prefs.getBool(this, Prefs.K_FILTER_YOUNG, true);
@@ -107,7 +159,7 @@ public class LttAccessibilityService extends AccessibilityService {
                 try {
                     int performed = 0;
                     for (PlannedAction a : acts) {
-                        String sig = signature(pkg, a);
+                        String sig = signature(pkgName, a);
                         Long last = lastClickSig.get(sig);
                         if (last != null && nowMs - last < DEDUPE_MS) continue;
                         lastClickSig.put(sig, nowMs);
@@ -120,7 +172,7 @@ public class LttAccessibilityService extends AccessibilityService {
                         }
                         if (ok) {
                             performed++;
-                            repo.logSkip(hash, pkg, triggerOf(a), a.type.name(), targetOf(a));
+                            repo.logSkip(hash, a.ruleType, pkgName, triggerOf(a), a.type.name(), targetOf(a));
                         }
                     }
                     if (performed > 0) {

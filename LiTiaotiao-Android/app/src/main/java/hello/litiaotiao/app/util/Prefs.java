@@ -25,7 +25,7 @@ public final class Prefs {
     public static final String K_MP_AUTO_BACK = "mini_program_auto_back";
 
     public static final String DEFAULT_GLOBAL_RULES =
-            "{\"keywords\":[\"跳过广告\",\"关闭广告\",\"跳过\"],\"popup_rules\":[]}";
+            "{\"keywords\":[\"跳过广告\",\"关闭广告\"],\"popup_rules\":[]}";
 
     private Prefs() {}
 
