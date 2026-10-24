@@ -79,6 +79,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/skipped_suffix"
                 android:textColor="@color/muted" />
+            <Button
+                android:id="@+id/btnOverlayPermission"
+                style="@style/BtnGhost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:text="开启悬浮窗权限（显示跳过提示）" />
         </LinearLayout>
 
         <!-- 菜单 -->

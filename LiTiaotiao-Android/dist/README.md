@@ -1,24 +1,49 @@
 # 构建产物（可直接安装）
 
-- **`LiTiaotiao-2.2.5-debug.apk`** — debug 签名，自用/测试可直接安装（当前版本）。
-- **`LiTiaotiao-2.2.4-debug.apk`** — 上一版本，保留备查。
+- **`LiTiaotiao-2.2.6-debug.apk`** — debug 签名，自用/测试可直接安装（当前版本）。
+- **`LiTiaotiao-2.2.5-debug.apk`** — 上一版本，保留备查。
 - 包名：`hello.litiaotiao.app`
-- 版本：`2.2.5`（versionCode 27）
+- 版本：`2.2.6`（versionCode 28）
 - minSdk 24 / targetSdk 34 / compileSdk 34
 - 安装：
   ```bash
-  adb install -r LiTiaotiao-2.2.5-debug.apk
+  adb install -r LiTiaotiao-2.2.6-debug.apk
   ```
   或手机开启「允许安装未知来源应用」后直接点击安装。
 - 完整性校验：见同目录 `SHA256SUMS.txt`。
 - 自行重新构建：`python scripts/build_apk.py`（产物在 `app/build/outputs/apk/debug/`）。
-- 跑规则引擎单元测试：`python scripts/run_tests.py`（35 项，纯 JVM）。
+- 跑规则引擎单元测试：`python scripts/run_tests.py`（38 项，纯 JVM）。
 - 设备上自动验证效果：`python scripts/verify_on_device.py [-s 序列号]`。
 
-> **构建可复现**：本目录的 APK 由**干净构建**（`gradle clean assembleDebug`）产出，
-> 与 GitHub Release v2.2.5 附带的 APK 体积完全一致（5,897,758 字节），
-> sha256 = `75700c0c7b936b981acbff5a443dca096aa63ce53bbb8e8f8625c75d0c089f54`。
+> **构建可复现**：本目录的 APK 由**干净构建**（`gradle clean assembleDebug`）产出。
+> - v2.2.6：5,900,678 字节，sha256 = `e5c6b5060f0ef4e00406b4882e9f95ee57999f149f345e0a7ddaefbd0c2b71c8`
+> - v2.2.5：5,897,758 字节，sha256 = `75700c0c7b936b981acbff5a443dca096aa63ce53bbb8e8f8625c75d0c089f54`
+>
 > 增量构建产物体积会略大（含陈旧中间产物），以干净构建为准。
+
+## 2.2.6 新增 / 修复
+
+- **新增「跳过提示」悬浮窗（对齐原版「已为你跳过 N 次」）**：
+  原版李跳跳在每次跳过广告后会在屏幕顶部闪现一条「已为你跳过 N 次」提示。
+  此前本复刻**只在首页显示一个静止的累计计数，跳过的那一刻没有任何提示**，且设置里的「隐藏 Toast 提示」开关是空转的。
+  - 改用 **WindowManager 悬浮窗**实现（而非系统 Toast）：因为本工程 `targetSdk 34`，Android 11+ 上后台服务弹出的 Toast 会被系统拦截，这正是原版改用悬浮窗的原因；
+  - 受「隐藏 Toast 提示」(`hide_toast`) 开关控制，默认显示；
+  - 连续跳过只刷新文案并重置隐藏计时，不会叠多个窗口；
+  - 未授予「显示在其他应用上层」权限时**静默不显示**（不崩溃）；
+  - 新增 `SkipTip` 纯文本格式化逻辑的单测（3 项），引擎单测总数 35 → 38。
+- **首页新增「开启悬浮窗权限」入口**：未授予悬浮窗权限且未隐藏提示时，首页显示引导按钮并提示去系统设置开启（设置页「隐藏 Toast 提示」可彻底关闭该功能）。
+- 新增 `SYSTEM_ALERT_WINDOW` 权限声明。
+
+> 实测与校验说明：本环境无可用模拟器/设备，验证以「干净构建通过 + 38 项 JVM 单测全过」为准；
+> 真机/模拟器上的悬浮窗显示建议按下方「如何在设备上验证跳过提示」手动确认。
+
+### 如何在设备上验证跳过提示
+
+1. 安装并启用无障碍服务（首页「打开系统无障碍设置」）。
+2. 若首页出现「开启悬浮窗权限」按钮 → 点它，在系统设置里给李跳跳打开「显示在其他应用上层」。
+3. 打开任意含开屏广告/弹窗的应用（或内部的 `LiTiaotiao-TestTarget` 测试 App）。
+4. 广告被跳过的瞬间，屏幕顶部应闪现「已为你跳过 N 次」。
+5. 想关掉提示：设置 → 打开「隐藏 Toast 提示」。
 
 ## 2.2.5 新增 / 修复
 

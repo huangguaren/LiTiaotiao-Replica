@@ -1,1 +1,1 @@
-75700c0c7b936b981acbff5a443dca096aa63ce53bbb8e8f8625c75d0c089f54  LiTiaotiao-2.2.5-debug.apk
+e5c6b5060f0ef4e00406b4882e9f95ee57999f149f345e0a7ddaefbd0c2b71c8  LiTiaotiao-2.2.6-debug.apk

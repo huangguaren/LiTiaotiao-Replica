@@ -2,6 +2,7 @@ package hello.litiaotiao.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Switch switchService;
     private TextView textServiceStatus;
     private TextView textSkipCount;
+    private Button btnOverlayPermission;
     private Repository repo;
 
     @Override
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         switchService = findViewById(R.id.switchService);
         textServiceStatus = findViewById(R.id.textServiceStatus);
         textSkipCount = findViewById(R.id.textSkipCount);
+        btnOverlayPermission = findViewById(R.id.btnOverlayPermission);
+        btnOverlayPermission.setOnClickListener(v -> openOverlaySettings());
 
         switchService.setOnClickListener(v -> openAccessibilitySettings());
         findViewById(R.id.btnOpenAccessibility).setOnClickListener(v -> openAccessibilitySettings());
@@ -64,6 +68,28 @@ public class MainActivity extends AppCompatActivity {
         switchService.setChecked(on);
         textServiceStatus.setText(on ? R.string.service_on : R.string.service_off);
         textSkipCount.setText(String.valueOf(Prefs.getSkipCount(this)));
+        updateOverlayHint();
+    }
+
+    /** 跳过提示默认开启；若未授予悬浮窗权限，引导用户去开启。 */
+    private void updateOverlayHint() {
+        boolean tipHidden = Prefs.getBool(this, Prefs.K_HIDE_TOAST, false);
+        boolean canOverlay = Settings.canDrawOverlays(this);
+        boolean showHint = !tipHidden && !canOverlay;
+        btnOverlayPermission.setVisibility(showHint ? View.VISIBLE : View.GONE);
+        if (showHint) {
+            Toast.makeText(this, "跳过提示需要「显示在其他应用上层」权限，请开启", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void openOverlaySettings() {
+        try {
+            Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            startActivity(i);
+        } catch (Exception e) {
+            Toast.makeText(this, "无法打开悬浮窗设置", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean isServiceEnabled() {
