@@ -38,3 +38,8 @@ node_modules/
 
 # ===== build logs =====
 *.log
+
+# ===== test target build =====
+LiTiaotiao-TestTarget/app/build/
+LiTiaotiao-TestTarget/.gradle/
+LiTiaotiao-TestTarget/local.properties
