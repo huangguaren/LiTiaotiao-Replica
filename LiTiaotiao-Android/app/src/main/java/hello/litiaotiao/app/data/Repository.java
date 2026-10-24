@@ -367,10 +367,11 @@ public class Repository {
     }
 
     // ---------- logs / stats / seed ----------
-    public void logSkip(int hash, String ruleType, String trigger, String kind, String target) {
+    public void logSkip(int hash, String ruleType, String pkg, String trigger, String kind, String target) {
         ContentValues v = new ContentValues();
         v.put("app_hash", hash);
         v.put("rule_type", ruleType);
+        v.put("package", pkg);
         v.put("trigger_text", trigger);
         v.put("action_kind", kind);
         v.put("action_target", target);
