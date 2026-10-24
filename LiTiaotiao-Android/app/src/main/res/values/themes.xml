@@ -31,6 +31,10 @@
     </style>
 
     <style name="Card">
+        <!-- 关键：样式必须自带布局参数与纵向排列，否则 inflate 会崩 / 子控件宽度变 0 -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
         <item name="android:background">@drawable/bg_card</item>
         <item name="android:padding">18dp</item>
         <item name="android:layout_marginBottom">14dp</item>
