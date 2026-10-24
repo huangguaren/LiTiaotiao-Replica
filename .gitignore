@@ -1,5 +1,7 @@
 # ===== build / toolchain (huge, not source) =====
 LiTiaotiao-Android/.buildtools/
+LiTiaotiao-Android/apks/
+LiTiaotiao-Android/downloaded-apks/
 **/.gradle/
 **/build/
 **/local.properties
