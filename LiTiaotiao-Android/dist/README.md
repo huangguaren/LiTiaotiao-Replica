@@ -15,6 +15,11 @@
 - 跑规则引擎单元测试：`python scripts/run_tests.py`（35 项，纯 JVM）。
 - 设备上自动验证效果：`python scripts/verify_on_device.py [-s 序列号]`。
 
+> **构建可复现**：本目录的 APK 由**干净构建**（`gradle clean assembleDebug`）产出，
+> 与 GitHub Release v2.2.5 附带的 APK 体积完全一致（5,897,758 字节），
+> sha256 = `75700c0c7b936b981acbff5a443dca096aa63ce53bbb8e8f8625c75d0c089f54`。
+> 增量构建产物体积会略大（含陈旧中间产物），以干净构建为准。
+
 ## 2.2.5 新增 / 修复
 
 - **新增「严格防重复点击（5 秒）」开关**（设置页，默认开启）：
