@@ -35,3 +35,6 @@ androguard.db
 
 # ===== node =====
 node_modules/
+
+# ===== build logs =====
+*.log

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /** SQLite 建库/升级。表结构与 Web 工作台一致，保证数据可互通。 */
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "litiaotiao.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
     public static final String T_APPS = "apps";
     public static final String T_RULES = "rules";
@@ -54,11 +54,19 @@ public class DbHelper extends SQLiteOpenHelper {
                 + "trigger_text TEXT,"
                 + "action_kind TEXT,"
                 + "action_target TEXT,"
+                + "package TEXT,"
                 + "created_at TEXT NOT NULL)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
-        // v1 首个版本，保留升级位
+        if (oldV < 2) {
+            // 2.x：skip_logs 增加 package 列（区分「哪个应用」与「规则类型」）
+            try {
+                db.execSQL("ALTER TABLE skip_logs ADD COLUMN package TEXT");
+            } catch (Exception ignore) {
+                // 列已存在时忽略
+            }
+        }
     }
 }
