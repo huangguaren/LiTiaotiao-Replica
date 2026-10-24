@@ -1,16 +1,32 @@
 # 构建产物（可直接安装）
 
-- **`LiTiaotiao-2.2.4-debug.apk`** — debug 签名，自用/测试可直接安装。
+- **`LiTiaotiao-2.2.5-debug.apk`** — debug 签名，自用/测试可直接安装（当前版本）。
+- **`LiTiaotiao-2.2.4-debug.apk`** — 上一版本，保留备查。
 - 包名：`hello.litiaotiao.app`
-- 版本：`2.2.4`（versionCode 26）
+- 版本：`2.2.5`（versionCode 27）
 - minSdk 24 / targetSdk 34 / compileSdk 34
 - 安装：
   ```bash
-  adb install -r LiTiaotiao-2.2.4-debug.apk
+  adb install -r LiTiaotiao-2.2.5-debug.apk
   ```
   或手机开启「允许安装未知来源应用」后直接点击安装。
 - 完整性校验：见同目录 `SHA256SUMS.txt`。
 - 自行重新构建：`python scripts/build_apk.py`（产物在 `app/build/outputs/apk/debug/`）。
+- 跑规则引擎单元测试：`python scripts/run_tests.py`（35 项，纯 JVM）。
+- 设备上自动验证效果：`python scripts/verify_on_device.py [-s 序列号]`。
+
+## 2.2.5 新增 / 修复
+
+- **新增「严格防重复点击（5 秒）」开关**（设置页，默认开启）：
+  常驻「跳过 / 关闭」按钮不再被每隔一两秒反复点击（冷却由 1.5 秒放宽到 5 秒）。
+- **修复动画期间重复点击**：转场 / 开屏倒计时会让同一控件的屏幕坐标漂移，
+  原去重签名把坐标算进身份，导致 1 秒内点两次。改为「有 resource id 就用 id 作身份，无 id 才用坐标」。
+  实测「仅启动 App」由 2 次点击降为 1 次。
+- **去重改用实际执行时刻**：原来用事件到达时刻，规则配了 `delay` 时会让间隔被低估而误判。
+- **规则引擎可单元测试**：把 `AccessibilityNodeInfo` 依赖抽成 `NodeHandle` 接口（点击/回收），
+  Android 侧由新增的 `NodeTree` 实现；引擎现在是零 `android.*` 依赖的纯 Java，新增 35 项 JVM 测试并接入 CI。
+- **新增设备端自动验证脚本** `scripts/verify_on_device.py`：
+  自动跑「开屏跳过 / 弹窗跳过 / 白名单」三场景，依据节点树与 `skip_logs` 判定 PASS / FAIL。
 
 ## 2.2.4 修复
 

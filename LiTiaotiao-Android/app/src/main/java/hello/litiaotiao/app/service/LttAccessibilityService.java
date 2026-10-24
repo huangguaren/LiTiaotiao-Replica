@@ -28,7 +28,8 @@ import hello.litiaotiao.app.util.Prefs;
  */
 public class LttAccessibilityService extends AccessibilityService {
     private static final long THROTTLE_MS = 120;      // 事件节流
-    private static final long DEDUPE_MS = 1500;       // 同一控件防重复点击窗口
+    private static final long DEDUPE_MS = 1500;       // 宽松模式：同一控件冷却 1.5 秒
+    private static final long DEDUPE_MS_STRICT = 5000;// 严格模式：同一控件冷却 5 秒
     private static final long MAX_SIG_ENTRIES = 200;  // 去重签名表上限
 
     /** 系统界面 / 桌面 / 输入法等不参与广告跳过（避免误点系统 UI）。 */
@@ -130,7 +131,7 @@ public class LttAccessibilityService extends AccessibilityService {
                 return;
             }
 
-            NodeSnapshot snapshot = NodeSnapshot.build(root);
+            NodeSnapshot snapshot = NodeTree.build(root);
             if (snapshot == null) {
                 recycleNode(root);
                 return;
@@ -138,6 +139,7 @@ public class LttAccessibilityService extends AccessibilityService {
 
             boolean filterInvisible = Prefs.getBool(this, Prefs.K_FILTER_INVISIBLE, true);
             boolean filterYoung = Prefs.getBool(this, Prefs.K_FILTER_YOUNG, true);
+            boolean strictDedupe = Prefs.getBool(this, Prefs.K_STRICT_DEDUPE, true);
             java.util.List<String> mpHosts = parseHosts(Prefs.getString(this, Prefs.K_MP_HOSTS, ""));
             boolean mpAutoBack = Prefs.getBool(this, Prefs.K_MP_AUTO_BACK, false);
 
@@ -151,18 +153,21 @@ public class LttAccessibilityService extends AccessibilityService {
 
             final NodeSnapshot snap = snapshot;
             final List<PlannedAction> acts = actions;
-            final long nowMs = now;
+            final long dedupeMs = strictDedupe ? DEDUPE_MS_STRICT : DEDUPE_MS;
             final int delayMs = appRules == null ? 0
                     : Math.max(appRules.getParamInt("delay_popup", 0), appRules.getParamInt("delay", 0));
 
             Runnable task = () -> {
                 try {
+                    // 用「实际执行时刻」而非「事件到达时刻」做去重，
+                    // 否则配置了 delay 时，延迟会让 nowMs - last 偏小，误判为刚点过。
+                    long execMs = System.currentTimeMillis();
                     int performed = 0;
                     for (PlannedAction a : acts) {
                         String sig = signature(pkgName, a);
                         Long last = lastClickSig.get(sig);
-                        if (last != null && nowMs - last < DEDUPE_MS) continue;
-                        lastClickSig.put(sig, nowMs);
+                        if (last != null && execMs - last < dedupeMs) continue;
+                        lastClickSig.put(sig, execMs);
 
                         boolean ok;
                         try {
@@ -205,8 +210,8 @@ public class LttAccessibilityService extends AccessibilityService {
             case BACK:
                 return performGlobalAction(GLOBAL_ACTION_BACK);
             case NODE:
-                if (a.target != null && a.target.source != null) {
-                    boolean r = a.target.source.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                if (a.target != null && a.target.handle != null) {
+                    boolean r = a.target.handle.click();
                     if (r) return true;
                 }
                 if (a.target != null && a.target.bounds != null) {
@@ -235,11 +240,21 @@ public class LttAccessibilityService extends AccessibilityService {
         dispatchGesture(gesture, null, null);
     }
 
+    /**
+     * 同一个控件的去重身份。
+     *
+     * <p>注意：页面转场/开屏倒计时动画期间，同一个控件在不同时刻的屏幕坐标会漂移。
+     * 若把坐标算进身份，就会把「动画中的同一个按钮」误判成两个不同控件，
+     * 从而在 1 秒内重复点击。因此当控件有 resource id 时，用 id 作为稳定身份；
+     * 只有在没有 id（纯文本控件）时才退回坐标。
+     */
     private String signature(String pkg, PlannedAction a) {
         StringBuilder sb = new StringBuilder(pkg).append('|').append(a.note).append('|');
         if (a.target != null) {
-            sb.append(a.target.text).append('/').append(a.target.resId).append('/')
-              .append(a.target.bounds[0]).append(',').append(a.target.bounds[1]);
+            sb.append(a.target.text).append('/').append(a.target.resId);
+            if (a.target.resId == null || a.target.resId.isEmpty()) {
+                sb.append('/').append(a.target.bounds[0]).append(',').append(a.target.bounds[1]);
+            }
         } else if (a.coords != null) {
             sb.append(a.coords[0]).append(',').append(a.coords[1]);
         }

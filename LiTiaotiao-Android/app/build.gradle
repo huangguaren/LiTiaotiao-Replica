@@ -10,8 +10,8 @@ android {
         applicationId "hello.litiaotiao.app"
         minSdk 24
         targetSdk 34
-        versionCode 26
-        versionName "2.2.4"
+        versionCode 27
+        versionName "2.2.5"
     }
 
     buildTypes {
@@ -28,10 +28,25 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests.all {
+            // 规则语义是纯 Java，不依赖 Android 框架；结果直接打到标准输出，便于 CI 查看
+            testLogging {
+                events "passed", "failed", "skipped"
+                showStandardStreams = true
+            }
+        }
+    }
 }
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // 单元测试：android.jar 里的 org.json 是 stub（调用即抛异常），
+    // 这里引入真实实现，让纯 Java 的规则引擎能在 JVM 上直接跑。
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20240303'
 }

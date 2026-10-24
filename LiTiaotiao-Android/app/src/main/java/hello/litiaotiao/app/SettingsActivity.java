@@ -21,6 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
         bind(R.id.switchFilterInvisible, Prefs.K_FILTER_INVISIBLE, true);
         bind(R.id.switchFilterYoung, Prefs.K_FILTER_YOUNG, true);
         bind(R.id.switchReverse, Prefs.K_REVERSE, false);
+        bind(R.id.switchStrictDedupe, Prefs.K_STRICT_DEDUPE, true);
 
         findViewById(R.id.btnSaveSettings).setOnClickListener(v -> finish());
     }
