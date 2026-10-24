@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 悬浮窗权限：用于显示「已为你跳过 N 次」跳过提示（对齐原版）。 -->
+    <!-- 悬浮窗权限：用于显示「小兔子乖乖」跳过提示（对齐原版）。 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
