@@ -15,6 +15,8 @@ public final class Prefs {
     public static final String K_FILTER_INVISIBLE = "filter_invisible_nodes";
     public static final String K_FILTER_YOUNG = "filter_young_popups";
     public static final String K_REVERSE = "reverse_traversal";
+    /** 严格防重复点击：同一控件冷却时间由 1.5 秒放宽到 5 秒，避免常驻“跳过”按钮被反复点击。 */
+    public static final String K_STRICT_DEDUPE = "strict_dedupe";
     public static final String K_SKIP_COUNT = "skip_count";
     public static final String K_SEEDED = "seeded";
 

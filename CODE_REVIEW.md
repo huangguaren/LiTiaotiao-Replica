@@ -141,15 +141,24 @@
 | W4 | 路径校验前缀匹配 | ✅ 已修复 | 改为 `Path.is_relative_to()` |
 | W5 | Android 导出 SQL 拼接 | ✅ 已修复 | 改为参数化 `hash=?` |
 | W6 | 编辑页加载触发写库 | ✅ 已修复 | 增加 `loading` 标志，加载期间忽略监听回调 |
-| W7 | 测试/CI 缺口 | ◐ 部分完成 | CI 新增 `Python Tests` job（25 例）；Java 单测待补（需测试工厂/Robolectric） |
+| W7 | 测试/CI 缺口 | ✅ 已修复 | CI 新增 3 个 job：`Python Tests`（29 例）、`Engine Unit Tests`（Java 35 例）、`Build APK`；Java 侧无需 Robolectric——已把 `AccessibilityNodeInfo` 抽成 `NodeHandle` 接口，引擎为纯 Java |
 | W8 | Node 未回收 | ✅ 已修复 | `NodeSnapshot.recycleTree()`，事件处理完回收 |
 | W9 | 无前台服务 | ⏭ 评估不改 | AccessibilityService 由系统绑定，FGS 非必需（原版 FGS 主要为其他用途）；已在文档说明 |
-| W10 | 双引擎漂移 | ◐ 部分完成 | `unite` / `filter_young` 语义已同步；共享测试向量待补 |
+| W10 | 双引擎漂移 | ✅ 已缓解 | `unite` / `filter_young` / `seen` 共享语义已逐行核对一致；跨语言锚点由 `JavaHashTest` 锁定（Python `java_hashcode` ↔ Java `String.hashCode`，含 `com.tencent.mm` = `-973170826`）；两端测试覆盖同一批规则语义用例。剩余差异仅 `search_times_popup` 的去重键跨轮复用（两端行为一致），已记入已知问题 |
 | W11 | simulate 污染统计 | ✅ 已修复 | `skip_logs` 增加 `source` 列，模拟写入 `simulate`；UI 已注明「模拟器运行计数」 |
 | W12 | 死配置 | ✅ 已处理 | `filter_young_popups` 已实现；移除 `is_user_check`；`ltt_service` 标注保留 |
 | Info | 魔法数字/服务状态判断/分隔符 | ✅ 已处理 | 常量提取；`isServiceEnabled` 改为组件列表解析；`|` 改为首个分隔符 |
 | Info | 注释正则误删 URL | ✅ 已修复 | 仅剥离块注释与行首 `//` |
-| Info | 输入上限/版本一致性 | ✅ 已处理 | 导入 5MB 上限；Web 版本统一为 `2.2.1` |
+| Info | 输入上限/版本一致性 | ✅ 已处理 | 导入 5MB 上限；Web 与 Android 版本统一为 `2.2.5`（versionCode 27） |
 | Info | 文件过大拆分 | ⏭ 待办 | `api.py`/`app.js` 拆分列为后续重构，不影响功能 |
 
-> 结论：Critical 2/2 已处理；Warning 12 项中 10 项已修复/实现，2 项部分完成并记录待办；Info 主要项已处理。
+### v2.2.5 实测发现并修复的问题（非静态审查发现，来自设备验证）
+
+| 问题 | 现象 | 根因 | 修复 |
+| --- | --- | --- | --- |
+| 常驻按钮被反复点击 | 主页有「跳过广告」按钮时，每隔 1–2 秒被点一次 | 去重冷却仅 1.5 秒 | 新增「严格防重复点击（5 秒）」开关（设置页，默认开） |
+| 动画期间 1 秒内点两次 | 仅启动 App 就产生 2 条相同记录 | 去重签名含坐标，转场/倒计时动画让坐标漂移，同一控件被当成两个 | 有 resource id 时用 id 作身份，无 id 才用坐标 |
+| `delay` 下去重误判 | — | 用「事件到达时刻」而非「执行时刻」比较，延迟让间隔被低估 | 改用 `System.currentTimeMillis()` 的实际执行时刻 |
+| 引擎无法单测 | — | `NodeSnapshot.source` 直连 `AccessibilityNodeInfo` | 抽出 `NodeHandle` 接口（click/recycle），Android 侧由 `NodeTree` 实现；引擎成纯 Java，新增 35 项 JVM 测试 |
+
+> 结论：Critical 2/2 已处理；Warning 12 项全部已修复/缓解；Info 主要项已处理，仅剩 `api.py`/`app.js` 文件拆分这一项非功能性重构待办。

@@ -1,15 +1,15 @@
 package hello.litiaotiao.app.engine;
 
-import android.graphics.Rect;
-import android.view.accessibility.AccessibilityNodeInfo;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * 无障碍节点树的不可变快照。把实时 {@link AccessibilityNodeInfo} 拍成一份普通对象，
- * 让规则引擎与系统框架解耦（便于测试），同时在 {@link #source} 里保留原节点引用，
- * 以便服务端执行点击时调用 performAction。
+ * 无障碍节点树的不可变快照，<b>不含任何 Android 框架依赖</b>。
+ *
+ * <p>把实时 {@code AccessibilityNodeInfo} 拍成一份普通对象，让规则引擎与系统框架解耦；
+ * 写操作（点击 / 回收）通过 {@link NodeHandle} 句柄回调到 Android 侧，
+ * 因此本类可以在纯 JVM 环境下直接构造并参与单元测试。
  */
 public final class NodeSnapshot {
     public final String text;      // getText() 优先，其次 contentDescription
@@ -21,11 +21,12 @@ public final class NodeSnapshot {
     public final boolean visible;
     public final Boolean checked;  // CheckBox 状态
     public final List<NodeSnapshot> children;
-    public transient AccessibilityNodeInfo source; // 执行操作用，不参与序列化
+    /** 执行动作/回收用的句柄；纯 Java 测试环境下可为 null。 */
+    public final NodeHandle handle;
 
-    private NodeSnapshot(String text, String desc, String resId, int[] bounds,
-                         String className, boolean clickable, boolean visible,
-                         Boolean checked, List<NodeSnapshot> children) {
+    public NodeSnapshot(String text, String desc, String resId, int[] bounds,
+                        String className, boolean clickable, boolean visible,
+                        Boolean checked, List<NodeSnapshot> children, NodeHandle handle) {
         this.text = text;
         this.desc = desc;
         this.resId = resId;
@@ -34,48 +35,29 @@ public final class NodeSnapshot {
         this.clickable = clickable;
         this.visible = visible;
         this.checked = checked;
-        this.children = children;
+        this.children = (children == null) ? Collections.emptyList()
+                                           : Collections.unmodifiableList(new ArrayList<>(children));
+        this.handle = handle;
     }
 
-    public static NodeSnapshot build(AccessibilityNodeInfo node) {
-        if (node == null) return null;
-        String text = charSeqToString(node.getText());
-        String desc = charSeqToString(node.getContentDescription());
-        String primary = (text != null && !text.isEmpty()) ? text : desc;
-        Rect r = new Rect();
-        try { node.getBoundsInScreen(r); } catch (Exception ignore) { }
-        Boolean checked = null;
-        try { checked = node.isCheckable() ? node.isChecked() : null; } catch (Exception ignore) { }
-        List<NodeSnapshot> kids = new ArrayList<>();
-        for (int i = 0; i < node.getChildCount(); i++) {
-            AccessibilityNodeInfo c = node.getChild(i);
-            if (c != null) {
-                NodeSnapshot s = build(c);
-                if (s != null) kids.add(s);
-            }
-        }
-        NodeSnapshot snap = new NodeSnapshot(
-                primary, desc, str(node.getViewIdResourceName()),
-                new int[]{r.left, r.top, r.right, r.bottom},
-                str(node.getClassName()), node.isClickable(), node.isVisibleToUser(),
-                checked, kids);
-        snap.source = node;
-        return snap;
+    /** 无子节点的便捷构造，测试用。 */
+    public static NodeSnapshot of(String text, String resId) {
+        return new NodeSnapshot(text, null, resId, new int[]{0, 0, 100, 100},
+                "android.widget.Button", true, true, null, null, null);
     }
 
-    private static String charSeqToString(CharSequence cs) {
-        return cs == null ? null : cs.toString();
+    /** 带子节点与可见性的便捷构造，测试用。 */
+    public static NodeSnapshot of(String text, String resId, boolean visible,
+                                  List<NodeSnapshot> children) {
+        return new NodeSnapshot(text, null, resId, new int[]{0, 0, 100, 100},
+                "android.widget.ViewGroup", false, visible, null, children, null);
     }
 
     /** 回收整棵快照树对应的系统节点，避免长期运行时的节点泄漏。 */
     public void recycleTree() {
-        if (source != null) {
-            try { source.recycle(); } catch (Exception ignore) { }
+        if (handle != null) {
+            try { handle.recycle(); } catch (Exception ignore) { }
         }
         for (NodeSnapshot c : children) c.recycleTree();
-    }
-
-    private static String str(CharSequence cs) {
-        return cs == null ? "" : cs.toString();
     }
 }
